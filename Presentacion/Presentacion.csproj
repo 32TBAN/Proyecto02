@@ -59,6 +59,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarBodega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarBodega.Designer.cs">
+      <DependentUpon>AgregarBodega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarProducto.Designer.cs">
+      <DependentUpon>AgregarProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Almacen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +109,12 @@
     <Compile Include="Venta.Designer.cs">
       <DependentUpon>Venta.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AgregarBodega.resx">
+      <DependentUpon>AgregarBodega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgregarProducto.resx">
+      <DependentUpon>AgregarProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Almacen.resx">
       <DependentUpon>Almacen.cs</DependentUpon>
     </EmbeddedResource>

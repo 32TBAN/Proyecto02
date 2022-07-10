@@ -45,9 +45,12 @@
             this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.label_Ubicacion = new System.Windows.Forms.Label();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.guna2TextBox_CedulaProductor = new Guna.UI2.WinForms.Guna2TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.guna2ComboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2ComboBox_Bodega = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBox7 = new Guna.UI2.WinForms.Guna2TextBox();
@@ -55,7 +58,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.guna2NumericUpDown1 = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2ComboBox_Producto = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.guna2GroupBox1.SuspendLayout();
@@ -360,9 +363,12 @@
             // guna2GroupBox2
             // 
             this.guna2GroupBox2.BorderRadius = 15;
+            this.guna2GroupBox2.Controls.Add(this.label_Ubicacion);
+            this.guna2GroupBox2.Controls.Add(this.iconButton2);
+            this.guna2GroupBox2.Controls.Add(this.iconButton1);
             this.guna2GroupBox2.Controls.Add(this.guna2TextBox_CedulaProductor);
             this.guna2GroupBox2.Controls.Add(this.label12);
-            this.guna2GroupBox2.Controls.Add(this.guna2ComboBox2);
+            this.guna2GroupBox2.Controls.Add(this.guna2ComboBox_Bodega);
             this.guna2GroupBox2.Controls.Add(this.label11);
             this.guna2GroupBox2.Controls.Add(this.guna2Button1);
             this.guna2GroupBox2.Controls.Add(this.guna2TextBox7);
@@ -370,7 +376,7 @@
             this.guna2GroupBox2.Controls.Add(this.label9);
             this.guna2GroupBox2.Controls.Add(this.guna2NumericUpDown1);
             this.guna2GroupBox2.Controls.Add(this.label8);
-            this.guna2GroupBox2.Controls.Add(this.guna2ComboBox1);
+            this.guna2GroupBox2.Controls.Add(this.guna2ComboBox_Producto);
             this.guna2GroupBox2.Controls.Add(this.dataGridView1);
             this.guna2GroupBox2.Controls.Add(this.label7);
             this.guna2GroupBox2.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(197)))), ((int)(((byte)(242)))));
@@ -379,9 +385,50 @@
             this.guna2GroupBox2.ForeColor = System.Drawing.Color.Black;
             this.guna2GroupBox2.Location = new System.Drawing.Point(282, 3);
             this.guna2GroupBox2.Name = "guna2GroupBox2";
-            this.guna2GroupBox2.Size = new System.Drawing.Size(532, 473);
+            this.guna2GroupBox2.Size = new System.Drawing.Size(556, 473);
             this.guna2GroupBox2.TabIndex = 3;
             this.guna2GroupBox2.Text = "Agregar Productos";
+            // 
+            // label_Ubicacion
+            // 
+            this.label_Ubicacion.AutoSize = true;
+            this.label_Ubicacion.Location = new System.Drawing.Point(381, 122);
+            this.label_Ubicacion.Name = "label_Ubicacion";
+            this.label_Ubicacion.Size = new System.Drawing.Size(61, 19);
+            this.label_Ubicacion.TabIndex = 26;
+            this.label_Ubicacion.Text = "label13";
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.iconButton2.IconColor = System.Drawing.Color.White;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 20;
+            this.iconButton2.Location = new System.Drawing.Point(348, 83);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(27, 23);
+            this.iconButton2.TabIndex = 25;
+            this.iconButton2.UseVisualStyleBackColor = true;
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.iconButton1.IconColor = System.Drawing.Color.White;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 20;
+            this.iconButton1.Location = new System.Drawing.Point(117, 82);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(27, 23);
+            this.iconButton1.TabIndex = 24;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // guna2TextBox_CedulaProductor
             // 
@@ -420,30 +467,30 @@
             this.label12.TabIndex = 22;
             this.label12.Text = "Cedula del productor:";
             // 
-            // guna2ComboBox2
+            // guna2ComboBox_Bodega
             // 
-            this.guna2ComboBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.guna2ComboBox2.BorderRadius = 10;
-            this.guna2ComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(127)))), ((int)(((byte)(242)))));
-            this.guna2ComboBox2.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox2.ItemHeight = 30;
-            this.guna2ComboBox2.Location = new System.Drawing.Point(281, 105);
-            this.guna2ComboBox2.Name = "guna2ComboBox2";
-            this.guna2ComboBox2.Size = new System.Drawing.Size(154, 36);
-            this.guna2ComboBox2.TabIndex = 21;
+            this.guna2ComboBox_Bodega.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox_Bodega.BorderColor = System.Drawing.Color.Black;
+            this.guna2ComboBox_Bodega.BorderRadius = 10;
+            this.guna2ComboBox_Bodega.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox_Bodega.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox_Bodega.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox_Bodega.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox_Bodega.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox_Bodega.ForeColor = System.Drawing.Color.Black;
+            this.guna2ComboBox_Bodega.ItemHeight = 30;
+            this.guna2ComboBox_Bodega.Location = new System.Drawing.Point(290, 106);
+            this.guna2ComboBox_Bodega.Name = "guna2ComboBox_Bodega";
+            this.guna2ComboBox_Bodega.Size = new System.Drawing.Size(85, 36);
+            this.guna2ComboBox_Bodega.TabIndex = 21;
+            this.guna2ComboBox_Bodega.SelectedValueChanged += new System.EventHandler(this.guna2ComboBox_Bodega_SelectedValueChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(281, 85);
+            this.label11.Location = new System.Drawing.Point(290, 85);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(59, 18);
             this.label11.TabIndex = 20;
@@ -460,7 +507,7 @@
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(444, 107);
+            this.guna2Button1.Location = new System.Drawing.Point(464, 108);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(84, 34);
             this.guna2Button1.TabIndex = 19;
@@ -477,19 +524,19 @@
             this.guna2TextBox7.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox7.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox7.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox7.Location = new System.Drawing.Point(477, 446);
+            this.guna2TextBox7.Location = new System.Drawing.Point(464, 429);
             this.guna2TextBox7.Name = "guna2TextBox7";
             this.guna2TextBox7.PasswordChar = '\0';
             this.guna2TextBox7.PlaceholderText = "";
             this.guna2TextBox7.SelectedText = "";
-            this.guna2TextBox7.Size = new System.Drawing.Size(45, 19);
+            this.guna2TextBox7.Size = new System.Drawing.Size(71, 19);
             this.guna2TextBox7.TabIndex = 18;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(426, 446);
+            this.label10.Location = new System.Drawing.Point(410, 429);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(49, 19);
             this.label10.TabIndex = 17;
@@ -509,15 +556,17 @@
             // guna2NumericUpDown1
             // 
             this.guna2NumericUpDown1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2NumericUpDown1.BorderColor = System.Drawing.Color.Black;
             this.guna2NumericUpDown1.BorderRadius = 10;
             this.guna2NumericUpDown1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2NumericUpDown1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.guna2NumericUpDown1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2NumericUpDown1.ForeColor = System.Drawing.Color.Black;
             this.guna2NumericUpDown1.Location = new System.Drawing.Point(175, 105);
             this.guna2NumericUpDown1.Name = "guna2NumericUpDown1";
             this.guna2NumericUpDown1.Size = new System.Drawing.Size(100, 36);
             this.guna2NumericUpDown1.TabIndex = 15;
+            this.guna2NumericUpDown1.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(197)))), ((int)(((byte)(242)))));
+            this.guna2NumericUpDown1.UpDownButtonForeColor = System.Drawing.Color.Black;
             // 
             // label8
             // 
@@ -530,30 +579,29 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "Cantidad(kg)";
             // 
-            // guna2ComboBox1
+            // guna2ComboBox_Producto
             // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.guna2ComboBox1.BorderRadius = 10;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(127)))), ((int)(((byte)(242)))));
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(6, 105);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(154, 36);
-            this.guna2ComboBox1.TabIndex = 13;
+            this.guna2ComboBox_Producto.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox_Producto.BorderColor = System.Drawing.Color.Black;
+            this.guna2ComboBox_Producto.BorderRadius = 10;
+            this.guna2ComboBox_Producto.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox_Producto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox_Producto.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox_Producto.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox_Producto.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox_Producto.ForeColor = System.Drawing.Color.Black;
+            this.guna2ComboBox_Producto.ItemHeight = 30;
+            this.guna2ComboBox_Producto.Location = new System.Drawing.Point(6, 105);
+            this.guna2ComboBox_Producto.Name = "guna2ComboBox_Producto";
+            this.guna2ComboBox_Producto.Size = new System.Drawing.Size(154, 36);
+            this.guna2ComboBox_Producto.TabIndex = 13;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(6, 179);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(523, 264);
+            this.dataGridView1.Size = new System.Drawing.Size(542, 234);
             this.dataGridView1.TabIndex = 12;
             // 
             // label7
@@ -572,12 +620,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(69)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(816, 480);
+            this.ClientSize = new System.Drawing.Size(842, 480);
             this.Controls.Add(this.guna2GroupBox2);
             this.Controls.Add(this.guna2GroupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Productos";
             this.Text = "Productos";
+            this.Load += new System.EventHandler(this.Productos_Load);
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
             this.guna2GroupBox2.ResumeLayout(false);
@@ -603,7 +652,7 @@
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox2;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox2;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox_Bodega;
         private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox7;
@@ -611,7 +660,7 @@
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2NumericUpDown guna2NumericUpDown1;
         private System.Windows.Forms.Label label8;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox_Producto;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
@@ -619,5 +668,8 @@
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox_CedulaProductor;
         private System.Windows.Forms.Label label12;
+        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.Label label_Ubicacion;
     }
 }

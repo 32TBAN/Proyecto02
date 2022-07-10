@@ -18,6 +18,36 @@ namespace Presentacion
         {
             InitializeComponent();
         }
+        private void Productos_Load(object sender, EventArgs e)
+        {
+            CargarComponentes();
+        }
+
+        private void CargarComponentes()
+        {
+            CargarBodegas();
+            CargarProductos();
+        }
+
+        private void CargarProductos()
+        {
+            
+        }
+
+        private void CargarBodegas()
+        {
+            var listaBodegas = BodegaNegocio.DevolverBodegas();
+            guna2ComboBox_Bodega.DataSource = listaBodegas;
+            guna2ComboBox_Bodega.DisplayMember = "Num";
+
+            DefinirUbicacion(((BodegaEntidad) guna2ComboBox_Bodega.SelectedValue).Num);
+        }
+
+        private void DefinirUbicacion(int selectedValue)
+        {
+            label_Ubicacion.Text = BodegaNegocio.BuscarBodega(selectedValue).Ubicacion;
+        }
+
         #region Botones
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
@@ -103,5 +133,23 @@ namespace Presentacion
                 guna2TextBox_CedulaProductor.Text = productoresEntidad.Cedula;
             }
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            AgregarProducto agregarProducto = new AgregarProducto();
+            agregarProducto.Show();
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            AgregarBodega agregarBodega = new AgregarBodega();
+            agregarBodega.Show();
+        }
+
+        private void guna2ComboBox_Bodega_SelectedValueChanged(object sender, EventArgs e)
+        {
+            DefinirUbicacion(((BodegaEntidad)guna2ComboBox_Bodega.SelectedValue).Num);
+        }
+
     }
 }

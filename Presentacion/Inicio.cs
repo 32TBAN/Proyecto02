@@ -64,6 +64,8 @@ namespace Presentacion
             {
                 formulario.BringToFront();
             }
+            guna2CustomGradientPanel_InfoPersonal.Visible = false;
+            iconButton_InfoPersonal.Visible = true;
         }
 
         private void iconButton4_Click(object sender, EventArgs e)
