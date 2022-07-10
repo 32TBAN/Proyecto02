@@ -7,26 +7,60 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Entidades;
+using Negocio;
 namespace Presentacion
 {
     public partial class Productos : Form
     {
+        ProductoresEntidad productoresEntidad = new ProductoresEntidad();
         public Productos()
         {
             InitializeComponent();
         }
-
+        #region Botones
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             GuardarDatosProductor();
         }
+        private void guna2GradientButton2_Click(object sender, EventArgs e)
+        {
+            guna2TextBox_Cedula.Text = "";
+            guna2TextBox_Nombre.Text = "";
+            guna2TextBox_Direccion.Text = "";
+            guna2TextBox_Telefono.Text = "";
+            guna2TextBox_TelefonoAdi.Text = "";
+            guna2TextBox_Email.Text = "";
+        }
 
+        private void guna2GradientButton3_Click(object sender, EventArgs e)
+        {
+            GuardarDatosProductor();
+        }
+        #endregion
+
+        #region Funciones
         private void GuardarDatosProductor()
         {
             if (ComprobarDatos())
             {
+                productoresEntidad.Cedula = guna2TextBox_Cedula.Text;
+                productoresEntidad.Nombre = guna2TextBox_Nombre.Text;
+                productoresEntidad.Direccion = guna2TextBox_Direccion.Text;
+                productoresEntidad.Telefono = guna2TextBox_Telefono.Text;
+                productoresEntidad.TelefonoAdicional = guna2TextBox_TelefonoAdi.Text;
+                productoresEntidad.Email = guna2TextBox_Email.Text;
 
+                productoresEntidad = ProductoresNegocio.Guardar(productoresEntidad);
+                if (productoresEntidad != null)
+                {
+                    MessageBox.Show("Se han guardado los datos. Ahorra puede comprar los productos");
+                    guna2TextBox_CedulaProductor.Text = productoresEntidad.Cedula;
+                }
+                else
+                {
+                    MessageBox.Show("A ocurido un error al guardar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -44,6 +78,30 @@ namespace Presentacion
                 return false;
             }
             return true;
+        }
+
+
+        #endregion
+
+        private void guna2TextBox_Cedula_TextChanged(object sender, EventArgs e)
+        {
+            CargarDatosExistentes();
+        }
+
+        private void CargarDatosExistentes()
+        {
+            productoresEntidad = ProductoresNegocio.DevolverProductorCedula(guna2TextBox_Cedula.Text);
+
+            if (productoresEntidad != null)
+            {
+                guna2TextBox_Nombre.Text = productoresEntidad.Nombre;
+                guna2TextBox_Direccion.Text = productoresEntidad.Direccion;
+                guna2TextBox_Telefono.Text = productoresEntidad.Telefono;
+                guna2TextBox_TelefonoAdi.Text = productoresEntidad.TelefonoAdicional;
+                guna2TextBox_Email.Text = productoresEntidad.Email;
+
+                guna2TextBox_CedulaProductor.Text = productoresEntidad.Cedula;
+            }
         }
     }
 }
