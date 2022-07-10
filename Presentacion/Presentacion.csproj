@@ -77,12 +77,6 @@
     <Compile Include="Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Opciones.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Opciones.Designer.cs">
-      <DependentUpon>Opciones.cs</DependentUpon>
-    </Compile>
     <Compile Include="Productos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,9 +105,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Opciones.resx">
-      <DependentUpon>Opciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Productos.resx">
       <DependentUpon>Productos.cs</DependentUpon>
@@ -144,6 +135,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="webfonts\fa-brands-400.eot" />
+    <None Include="webfonts\fa-brands-400.ttf" />
+    <None Include="webfonts\fa-brands-400.woff" />
+    <None Include="webfonts\fa-brands-400.woff2" />
+    <None Include="webfonts\fa-regular-400.eot" />
+    <None Include="webfonts\fa-regular-400.ttf" />
+    <None Include="webfonts\fa-regular-400.woff" />
+    <None Include="webfonts\fa-regular-400.woff2" />
+    <None Include="webfonts\fa-solid-900.eot" />
+    <None Include="webfonts\fa-solid-900.ttf" />
+    <None Include="webfonts\fa-solid-900.woff" />
+    <None Include="webfonts\fa-solid-900.woff2" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -192,6 +195,50 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Tomate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\all.css" />
+    <Content Include="Content\all.min.css" />
+    <Content Include="Content\brands.css" />
+    <Content Include="Content\brands.min.css" />
+    <Content Include="Content\fontawesome.css" />
+    <Content Include="Content\fontawesome.min.css" />
+    <Content Include="Content\regular.css" />
+    <Content Include="Content\regular.min.css" />
+    <Content Include="Content\solid.css" />
+    <Content Include="Content\solid.min.css" />
+    <Content Include="Content\svg-with-js.css" />
+    <Content Include="Content\svg-with-js.min.css" />
+    <Content Include="Content\v4-shims.css" />
+    <Content Include="Content\v4-shims.min.css" />
+    <None Include="Resources\Granja.png" />
+    <Content Include="Scripts\fontawesome\all.js" />
+    <Content Include="Scripts\fontawesome\all.min.js" />
+    <Content Include="Scripts\fontawesome\brands.js" />
+    <Content Include="Scripts\fontawesome\brands.min.js" />
+    <Content Include="Scripts\fontawesome\conflict-detection.js" />
+    <Content Include="Scripts\fontawesome\conflict-detection.min.js" />
+    <Content Include="Scripts\fontawesome\fontawesome.js" />
+    <Content Include="Scripts\fontawesome\fontawesome.min.js" />
+    <Content Include="Scripts\fontawesome\regular.js" />
+    <Content Include="Scripts\fontawesome\regular.min.js" />
+    <Content Include="Scripts\fontawesome\solid.js" />
+    <Content Include="Scripts\fontawesome\solid.min.js" />
+    <Content Include="Scripts\fontawesome\v4-shims.js" />
+    <Content Include="Scripts\fontawesome\v4-shims.min.js" />
+    <Content Include="webfonts\fa-brands-400.svg" />
+    <Content Include="webfonts\fa-regular-400.svg" />
+    <Content Include="webfonts\fa-solid-900.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{38474684-ee91-42f7-b68c-29a11be2f06d}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
+      <Project>{81e73558-3a52-43f7-bbc6-ee9d28f0bfb8}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

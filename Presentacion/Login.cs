@@ -30,7 +30,8 @@ namespace Presentacion
         private extern static void ReleaseCaprure();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsq, int wParam, int lParam);
-        private void guna2CustomGradientPanel1_MouseDown(object sender, MouseEventArgs e)
+
+        private void guna2CustomGradientPanel1_MouseDown_1(object sender, MouseEventArgs e)
         {
             ReleaseCaprure();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
@@ -87,11 +88,17 @@ namespace Presentacion
         private void Form1_Paint_1(object sender, PaintEventArgs e)
         {
             FormRegionAndBorder(this, bordesRadio, e.Graphics, coloreBorede, bordeTamano);
-
         }
 
 
         #endregion
+
+        private void CerrarSesion(object sender, FormClosedEventArgs e)
+        {
+            guna2TextBox_Contrasenia.Text = "Contraseña";
+            this.Show();
+            guna2TextBox_Usuario.Focus();
+        }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
@@ -100,20 +107,50 @@ namespace Presentacion
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
-            //if (guna2TextBox_Usuario.Text != "" && guna2TextBox_Contrasenia.Text != "")
+            //if (guna2TextBox_Usuario.Text != "Usuario" && guna2TextBox_Contrasenia.Text != "Contraseña")
             //{
-                Inicio inicio = new Inicio();
-                inicio.Show();
-                inicio.FormClosed += CerrarSesion;
-                this.Hide();
+            Inicio inicio = new Inicio();
+            inicio.Show();
+            inicio.FormClosed += CerrarSesion;
+            this.Hide();
             //}
         }
-        private void CerrarSesion(object sender, FormClosedEventArgs e)
+
+        private void guna2TextBox_Usuario_Enter(object sender, EventArgs e)
         {
-            guna2TextBox_Usuario.Clear();
-            guna2TextBox_Contrasenia.Clear();
-            this.Show();
-            guna2TextBox_Usuario.Focus();
+            if (guna2TextBox_Usuario.Text == "Usuario")
+            {
+                guna2TextBox_Usuario.Text = "";
+                label_Usuario.Visible = true;
+            }
+        }
+
+        private void guna2TextBox_Contrasenia_Enter(object sender, EventArgs e)
+        {
+            if (guna2TextBox_Contrasenia.Text == "Contraseña")
+            {
+                guna2TextBox_Contrasenia.Text = "";
+                label_Contrasenia.Visible = true;
+            }
+        }
+
+        private void guna2TextBox_Usuario_Leave(object sender, EventArgs e)
+        {
+            if (guna2TextBox_Usuario.Text=="")
+            {
+                guna2TextBox_Usuario.Text = "Usuario";
+                label_Usuario.Visible = false;
+            }
+        }
+
+        private void guna2TextBox_Contrasenia_Leave(object sender, EventArgs e)
+        {
+            if (guna2TextBox_Contrasenia.Text == "")
+            {
+                guna2TextBox_Contrasenia.Text = "Contraseña";
+                label_Contrasenia.Visible = false;
+            }
+
         }
     }
 }
