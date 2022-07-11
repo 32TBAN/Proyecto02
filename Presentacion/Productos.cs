@@ -11,10 +11,11 @@ using Entidades;
 using Negocio;
 namespace Presentacion
 {
-    public partial class Productos : Form
+    public partial class Recepcion : Form
     {
         ProductoresEntidad productoresEntidad = new ProductoresEntidad();
-        public Productos()
+        RecepcionEntidad recepcionEntidad = new RecepcionEntidad();
+        public Recepcion()
         {
             InitializeComponent();
         }
@@ -31,7 +32,8 @@ namespace Presentacion
 
         private void CargarProductos()
         {
-            
+            guna2ComboBox_Producto.DataSource = ProductoNegocio.DevolverProductos();
+            guna2ComboBox_Producto.DisplayMember = "Nombre";
         }
 
         private void CargarBodegas()
@@ -84,13 +86,32 @@ namespace Presentacion
                 productoresEntidad = ProductoresNegocio.Guardar(productoresEntidad);
                 if (productoresEntidad != null)
                 {
-                    MessageBox.Show("Se han guardado los datos. Ahorra puede comprar los productos");
+                    MessageBox.Show("Se han guardado los datos.");
                     guna2TextBox_CedulaProductor.Text = productoresEntidad.Cedula;
+                    ComenzarRecepcion();
                 }
                 else
                 {
                     MessageBox.Show("A ocurido un error al guardar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void ComenzarRecepcion()
+        {
+            recepcionEntidad.IdUsuario = 1;
+            recepcionEntidad.IdProductor = productoresEntidad.Id;
+            recepcionEntidad.FechaRecepcion = DateTime.UtcNow;
+            recepcionEntidad.Total = 0;
+
+            recepcionEntidad = RecepcionNegocio.ComenzarRecepcion(recepcionEntidad);
+            if (recepcionEntidad != null)
+            {
+                MessageBox.Show("Ahorra puede comprar los productos");
+            }
+            else
+            {
+                MessageBox.Show("Ha ocurrido un error en la recepcion");
             }
         }
 
@@ -151,5 +172,9 @@ namespace Presentacion
             DefinirUbicacion(((BodegaEntidad)guna2ComboBox_Bodega.SelectedValue).Num);
         }
 
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

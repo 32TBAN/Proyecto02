@@ -91,7 +91,7 @@ namespace Presentacion
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            AbrirFormularios<Productos>();
+            AbrirFormularios<Recepcion>();
             label_Lugar.Text = "Ingreso de Productos";
         }
 
@@ -116,7 +116,7 @@ namespace Presentacion
         private void pictureBox5_Click(object sender, EventArgs e)
         {
             label_Lugar.Text = "Bienvenid@";
-            CerrarFormularios<Productos>();
+            CerrarFormularios<Recepcion>();
             CerrarFormularios<Venta>();
             CerrarFormularios<Almacen>();
             CerrarFormularios<Reporte>();
@@ -135,7 +135,7 @@ namespace Presentacion
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            AbrirFormularios<Productos>();
+            AbrirFormularios<Recepcion>();
             label_Lugar.Text = "Ingreso de Productos";
         }
 

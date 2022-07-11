@@ -41,7 +41,7 @@ namespace Presentacion
 
         private void Guardar()
         {
-           if (guna2TextBox_Bodega.Text != "" || guna2NumericUpDown_Capacidad.Value != 0)
+           if (guna2TextBox_Bodega.Text != "" || !guna2NumericUpDown_Capacidad.Value.Equals(0))
             {
                 bodegaEntidad.Ubicacion = guna2TextBox_Bodega.Text;
                 bodegaEntidad.Capacidad = Convert.ToInt32(guna2NumericUpDown_Capacidad.Value);

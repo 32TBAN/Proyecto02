@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class Productos
+    partial class Recepcion
     {
         /// <summary>
         /// Required designer variable.
@@ -61,6 +61,7 @@
             this.guna2ComboBox_Producto = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
+            this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GroupBox1.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2NumericUpDown1)).BeginInit();
@@ -363,6 +364,7 @@
             // guna2GroupBox2
             // 
             this.guna2GroupBox2.BorderRadius = 15;
+            this.guna2GroupBox2.Controls.Add(this.guna2GradientButton4);
             this.guna2GroupBox2.Controls.Add(this.label_Ubicacion);
             this.guna2GroupBox2.Controls.Add(this.iconButton2);
             this.guna2GroupBox2.Controls.Add(this.iconButton1);
@@ -392,7 +394,7 @@
             // label_Ubicacion
             // 
             this.label_Ubicacion.AutoSize = true;
-            this.label_Ubicacion.Location = new System.Drawing.Point(381, 122);
+            this.label_Ubicacion.Location = new System.Drawing.Point(377, 115);
             this.label_Ubicacion.Name = "label_Ubicacion";
             this.label_Ubicacion.Size = new System.Drawing.Size(61, 19);
             this.label_Ubicacion.TabIndex = 26;
@@ -507,11 +509,12 @@
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(464, 108);
+            this.guna2Button1.Location = new System.Drawing.Point(456, 108);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(84, 34);
             this.guna2Button1.TabIndex = 19;
-            this.guna2Button1.Text = "Aceptar";
+            this.guna2Button1.Text = "Agregar";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // guna2TextBox7
             // 
@@ -524,7 +527,7 @@
             this.guna2TextBox7.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox7.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox7.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox7.Location = new System.Drawing.Point(464, 429);
+            this.guna2TextBox7.Location = new System.Drawing.Point(328, 429);
             this.guna2TextBox7.Name = "guna2TextBox7";
             this.guna2TextBox7.PasswordChar = '\0';
             this.guna2TextBox7.PlaceholderText = "";
@@ -536,7 +539,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(410, 429);
+            this.label10.Location = new System.Drawing.Point(274, 429);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(49, 19);
             this.label10.TabIndex = 17;
@@ -615,7 +618,27 @@
             this.label7.TabIndex = 11;
             this.label7.Text = "Elegir Producto";
             // 
-            // Productos
+            // guna2GradientButton4
+            // 
+            this.guna2GradientButton4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.guna2GradientButton4.BorderRadius = 15;
+            this.guna2GradientButton4.BorderThickness = 1;
+            this.guna2GradientButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton4.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2GradientButton4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(197)))), ((int)(((byte)(242)))));
+            this.guna2GradientButton4.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(127)))), ((int)(((byte)(242)))));
+            this.guna2GradientButton4.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GradientButton4.ForeColor = System.Drawing.Color.White;
+            this.guna2GradientButton4.Location = new System.Drawing.Point(453, 419);
+            this.guna2GradientButton4.Name = "guna2GradientButton4";
+            this.guna2GradientButton4.Size = new System.Drawing.Size(93, 36);
+            this.guna2GradientButton4.TabIndex = 27;
+            this.guna2GradientButton4.Text = "Finalizar";
+            // 
+            // Recepcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -624,7 +647,7 @@
             this.Controls.Add(this.guna2GroupBox2);
             this.Controls.Add(this.guna2GroupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Productos";
+            this.Name = "Recepcion";
             this.Text = "Productos";
             this.Load += new System.EventHandler(this.Productos_Load);
             this.guna2GroupBox1.ResumeLayout(false);
@@ -671,5 +694,6 @@
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.Label label_Ubicacion;
+        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton4;
     }
 }
