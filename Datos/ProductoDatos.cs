@@ -96,6 +96,7 @@ namespace Datos
                 cmd.CommandText = @"SELECT [COD_PRO]
                                   ,[NOM_PRO]
                                   ,[PRE_PRO]
+                                  ,[STOCK]
                                   FROM [dbo].[PRODUCTOS];";
 
                 List<ProductosEntidad> listaProducto= new List<ProductosEntidad>();
@@ -105,7 +106,7 @@ namespace Datos
                     {
                         listaProducto.Add(new ProductosEntidad(
                             Convert.ToInt32(dr["COD_PRO"].ToString()), dr["NOM_PRO"].ToString(),
-                            Convert.ToSingle(dr["PRE_PRO"].ToString())));
+                            Convert.ToSingle(dr["PRE_PRO"].ToString()), Convert.ToInt32(dr["STOCK"].ToString())));
                     }
                 }
 

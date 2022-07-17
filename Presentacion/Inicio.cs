@@ -93,24 +93,31 @@ namespace Presentacion
         {
             AbrirFormularios<Recepcion>();
             label_Lugar.Text = "Ingreso de Productos";
+            pictureBox_Referencia.Image = pictureBox_Producto.Image;
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
             AbrirFormularios<Almacen>();
             label_Lugar.Text = "Bodegas";
+            pictureBox_Referencia.Image = pictureBox_Bodegas.Image;
+
         }
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
             AbrirFormularios<Venta>();
             label_Lugar.Text = "Venta";
+            pictureBox_Referencia.Image = pictureBox_Ventas.Image;
+
         }
 
         private void iconButton6_Click(object sender, EventArgs e)
         {
             AbrirFormularios<Reporte>();
             label_Lugar.Text = "Reportes";
+            pictureBox_Referencia.Image = pictureBox_Reporte.Image;
+
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
@@ -120,6 +127,7 @@ namespace Presentacion
             CerrarFormularios<Venta>();
             CerrarFormularios<Almacen>();
             CerrarFormularios<Reporte>();
+            pictureBox_Referencia.Image = null;
         }
 
         public void CerrarFormularios<MiForm>() where MiForm : Form, new()
@@ -137,24 +145,32 @@ namespace Presentacion
         {
             AbrirFormularios<Recepcion>();
             label_Lugar.Text = "Ingreso de Productos";
+            pictureBox_Referencia.Image = pictureBox_Producto.Image;
+
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             AbrirFormularios<Almacen>();
             label_Lugar.Text = "Bodegas";
+            pictureBox_Referencia.Image = pictureBox_Bodegas.Image;
+
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             AbrirFormularios<Venta>();
             label_Lugar.Text = "Venta";
+            pictureBox_Referencia.Image = pictureBox_Ventas.Image;
+
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             AbrirFormularios<Reporte>();
             label_Lugar.Text = "Reportes";
+            pictureBox_Referencia.Image = pictureBox_Reporte.Image;
+
         }
 
         private void CambioarImagen(object img)

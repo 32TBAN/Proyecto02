@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.AnimatorNS.Animation animation1 = new Guna.UI2.AnimatorNS.Animation();
+            Guna.UI2.AnimatorNS.Animation animation2 = new Guna.UI2.AnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2CustomGradientPanel_InfoPersonal = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
@@ -50,17 +50,17 @@
             this.panel_Contenedor = new System.Windows.Forms.Panel();
             this.guna2CustomGradientPanel5 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_Producto = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel7 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_Bodegas = new System.Windows.Forms.PictureBox();
             this.guna2CustomGradientPanel8 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_Ventas = new System.Windows.Forms.PictureBox();
             this.guna2CustomGradientPanel9 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_Reporte = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel10 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2CustomGradientPanel6 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
@@ -85,18 +85,19 @@
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.guna2Transition1 = new Guna.UI2.WinForms.Guna2Transition();
+            this.pictureBox_Referencia = new System.Windows.Forms.PictureBox();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.guna2CustomGradientPanel_InfoPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.panel_Contenedor.SuspendLayout();
             this.guna2CustomGradientPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Producto)).BeginInit();
             this.guna2CustomGradientPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Bodegas)).BeginInit();
             this.guna2CustomGradientPanel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Ventas)).BeginInit();
             this.guna2CustomGradientPanel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Reporte)).BeginInit();
             this.guna2CustomGradientPanel6.SuspendLayout();
             this.guna2CustomGradientPanel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -111,6 +112,7 @@
             this.guna2CustomGradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Referencia)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2CustomGradientPanel2
@@ -445,7 +447,7 @@
             this.guna2CustomGradientPanel5.BorderRadius = 15;
             this.guna2CustomGradientPanel5.BorderThickness = 1;
             this.guna2CustomGradientPanel5.Controls.Add(this.label4);
-            this.guna2CustomGradientPanel5.Controls.Add(this.pictureBox1);
+            this.guna2CustomGradientPanel5.Controls.Add(this.pictureBox_Producto);
             this.guna2Transition1.SetDecoration(this.guna2CustomGradientPanel5, Guna.UI2.AnimatorNS.DecorationType.None);
             this.guna2CustomGradientPanel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
             this.guna2CustomGradientPanel5.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
@@ -469,19 +471,19 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Productos";
             // 
-            // pictureBox1
+            // pictureBox_Producto
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Transition1.SetDecoration(this.pictureBox1, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.pictureBox1.Image = global::Presentacion.Properties.Resources.vegtables;
-            this.pictureBox1.Location = new System.Drawing.Point(17, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(151, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox_Producto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
+            this.pictureBox_Producto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Transition1.SetDecoration(this.pictureBox_Producto, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.pictureBox_Producto.Image = global::Presentacion.Properties.Resources.vegtables;
+            this.pictureBox_Producto.Location = new System.Drawing.Point(17, 3);
+            this.pictureBox_Producto.Name = "pictureBox_Producto";
+            this.pictureBox_Producto.Size = new System.Drawing.Size(151, 100);
+            this.pictureBox_Producto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_Producto.TabIndex = 0;
+            this.pictureBox_Producto.TabStop = false;
+            this.pictureBox_Producto.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
@@ -503,7 +505,7 @@
             this.guna2CustomGradientPanel7.BorderRadius = 15;
             this.guna2CustomGradientPanel7.BorderThickness = 1;
             this.guna2CustomGradientPanel7.Controls.Add(this.label5);
-            this.guna2CustomGradientPanel7.Controls.Add(this.pictureBox2);
+            this.guna2CustomGradientPanel7.Controls.Add(this.pictureBox_Bodegas);
             this.guna2Transition1.SetDecoration(this.guna2CustomGradientPanel7, Guna.UI2.AnimatorNS.DecorationType.None);
             this.guna2CustomGradientPanel7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
             this.guna2CustomGradientPanel7.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
@@ -527,19 +529,19 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Almacenes";
             // 
-            // pictureBox2
+            // pictureBox_Bodegas
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Transition1.SetDecoration(this.pictureBox2, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.pictureBox2.Image = global::Presentacion.Properties.Resources.Almacen;
-            this.pictureBox2.Location = new System.Drawing.Point(15, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(151, 106);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pictureBox_Bodegas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
+            this.pictureBox_Bodegas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Transition1.SetDecoration(this.pictureBox_Bodegas, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.pictureBox_Bodegas.Image = global::Presentacion.Properties.Resources.Almacen;
+            this.pictureBox_Bodegas.Location = new System.Drawing.Point(15, 3);
+            this.pictureBox_Bodegas.Name = "pictureBox_Bodegas";
+            this.pictureBox_Bodegas.Size = new System.Drawing.Size(151, 106);
+            this.pictureBox_Bodegas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_Bodegas.TabIndex = 1;
+            this.pictureBox_Bodegas.TabStop = false;
+            this.pictureBox_Bodegas.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // guna2CustomGradientPanel8
             // 
@@ -548,7 +550,7 @@
             this.guna2CustomGradientPanel8.BorderRadius = 15;
             this.guna2CustomGradientPanel8.BorderThickness = 1;
             this.guna2CustomGradientPanel8.Controls.Add(this.label6);
-            this.guna2CustomGradientPanel8.Controls.Add(this.pictureBox3);
+            this.guna2CustomGradientPanel8.Controls.Add(this.pictureBox_Ventas);
             this.guna2Transition1.SetDecoration(this.guna2CustomGradientPanel8, Guna.UI2.AnimatorNS.DecorationType.None);
             this.guna2CustomGradientPanel8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
             this.guna2CustomGradientPanel8.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
@@ -572,19 +574,19 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Ventas";
             // 
-            // pictureBox3
+            // pictureBox_Ventas
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Transition1.SetDecoration(this.pictureBox3, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.pictureBox3.Image = global::Presentacion.Properties.Resources.tienda;
-            this.pictureBox3.Location = new System.Drawing.Point(16, 4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(144, 102);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.pictureBox_Ventas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
+            this.pictureBox_Ventas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Transition1.SetDecoration(this.pictureBox_Ventas, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.pictureBox_Ventas.Image = global::Presentacion.Properties.Resources.tienda;
+            this.pictureBox_Ventas.Location = new System.Drawing.Point(16, 4);
+            this.pictureBox_Ventas.Name = "pictureBox_Ventas";
+            this.pictureBox_Ventas.Size = new System.Drawing.Size(144, 102);
+            this.pictureBox_Ventas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_Ventas.TabIndex = 1;
+            this.pictureBox_Ventas.TabStop = false;
+            this.pictureBox_Ventas.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // guna2CustomGradientPanel9
             // 
@@ -593,7 +595,7 @@
             this.guna2CustomGradientPanel9.BorderRadius = 15;
             this.guna2CustomGradientPanel9.BorderThickness = 1;
             this.guna2CustomGradientPanel9.Controls.Add(this.label7);
-            this.guna2CustomGradientPanel9.Controls.Add(this.pictureBox4);
+            this.guna2CustomGradientPanel9.Controls.Add(this.pictureBox_Reporte);
             this.guna2Transition1.SetDecoration(this.guna2CustomGradientPanel9, Guna.UI2.AnimatorNS.DecorationType.None);
             this.guna2CustomGradientPanel9.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
             this.guna2CustomGradientPanel9.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
@@ -617,19 +619,19 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "Reportes";
             // 
-            // pictureBox4
+            // pictureBox_Reporte
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Transition1.SetDecoration(this.pictureBox4, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.pictureBox4.Image = global::Presentacion.Properties.Resources.reporte02;
-            this.pictureBox4.Location = new System.Drawing.Point(28, 9);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(119, 91);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 1;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            this.pictureBox_Reporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
+            this.pictureBox_Reporte.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Transition1.SetDecoration(this.pictureBox_Reporte, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.pictureBox_Reporte.Image = global::Presentacion.Properties.Resources.reporte02;
+            this.pictureBox_Reporte.Location = new System.Drawing.Point(28, 9);
+            this.pictureBox_Reporte.Name = "pictureBox_Reporte";
+            this.pictureBox_Reporte.Size = new System.Drawing.Size(119, 91);
+            this.pictureBox_Reporte.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_Reporte.TabIndex = 1;
+            this.pictureBox_Reporte.TabStop = false;
+            this.pictureBox_Reporte.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // label2
             // 
@@ -840,6 +842,7 @@
             this.guna2CustomGradientPanel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.guna2CustomGradientPanel3.BorderRadius = 15;
             this.guna2CustomGradientPanel3.BorderThickness = 1;
+            this.guna2CustomGradientPanel3.Controls.Add(this.pictureBox_Referencia);
             this.guna2CustomGradientPanel3.Controls.Add(this.iconButton_InfoPersonal);
             this.guna2CustomGradientPanel3.Controls.Add(this.pictureBox5);
             this.guna2CustomGradientPanel3.Controls.Add(this.label_Lugar);
@@ -890,7 +893,7 @@
             this.label_Lugar.AutoSize = true;
             this.guna2Transition1.SetDecoration(this.label_Lugar, Guna.UI2.AnimatorNS.DecorationType.None);
             this.label_Lugar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Lugar.Location = new System.Drawing.Point(24, 26);
+            this.label_Lugar.Location = new System.Drawing.Point(58, 31);
             this.label_Lugar.Name = "label_Lugar";
             this.label_Lugar.Size = new System.Drawing.Size(113, 24);
             this.label_Lugar.TabIndex = 0;
@@ -1016,22 +1019,32 @@
             // 
             this.guna2Transition1.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Particles;
             this.guna2Transition1.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 1;
-            animation1.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 2F;
-            animation1.TransparencyCoeff = 0F;
-            this.guna2Transition1.DefaultAnimation = animation1;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 1;
+            animation2.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 2F;
+            animation2.TransparencyCoeff = 0F;
+            this.guna2Transition1.DefaultAnimation = animation2;
+            // 
+            // pictureBox_Referencia
+            // 
+            this.guna2Transition1.SetDecoration(this.pictureBox_Referencia, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.pictureBox_Referencia.Location = new System.Drawing.Point(7, 26);
+            this.pictureBox_Referencia.Name = "pictureBox_Referencia";
+            this.pictureBox_Referencia.Size = new System.Drawing.Size(50, 36);
+            this.pictureBox_Referencia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_Referencia.TabIndex = 17;
+            this.pictureBox_Referencia.TabStop = false;
             // 
             // Inicio
             // 
@@ -1052,16 +1065,16 @@
             this.panel_Contenedor.PerformLayout();
             this.guna2CustomGradientPanel5.ResumeLayout(false);
             this.guna2CustomGradientPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Producto)).EndInit();
             this.guna2CustomGradientPanel7.ResumeLayout(false);
             this.guna2CustomGradientPanel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Bodegas)).EndInit();
             this.guna2CustomGradientPanel8.ResumeLayout(false);
             this.guna2CustomGradientPanel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Ventas)).EndInit();
             this.guna2CustomGradientPanel9.ResumeLayout(false);
             this.guna2CustomGradientPanel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Reporte)).EndInit();
             this.guna2CustomGradientPanel6.ResumeLayout(false);
             this.guna2CustomGradientPanel15.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
@@ -1077,6 +1090,7 @@
             this.guna2CustomGradientPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.guna2CustomGradientPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Referencia)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1113,17 +1127,17 @@
         private FontAwesome.Sharp.IconButton iconButton_InfoPersonal;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox_Producto;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel7;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox_Bodegas;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel8;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox_Ventas;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel9;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox_Reporte;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel10;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel6;
@@ -1138,5 +1152,6 @@
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel11;
         private System.Windows.Forms.PictureBox pictureBox_Principal;
         private Guna.UI2.WinForms.Guna2Transition guna2Transition1;
+        private System.Windows.Forms.PictureBox pictureBox_Referencia;
     }
 }

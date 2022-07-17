@@ -38,7 +38,7 @@ namespace Presentacion
             {
                 productosEntidad.Nombre = guna2TextBox_NombreProducto.Text;
                 productosEntidad.Precio = (float) guna2NumericUpDown_Precio.Value;
-
+                productosEntidad.Stock = 0;
                 productosEntidad = ProductoNegocio.Guardar(productosEntidad);
                 if (productosEntidad != null)
                 {

@@ -97,11 +97,11 @@ namespace Datos
                     using (var cmd = ComandoSql(connection))
                     {
                         connection.Open();
-                        cmd.CommandText = @"SELECT P.NOM_PRO AS NOMBRE, SUM(CANTIDAD) AS CANTIDAD
-                                            FROM DETALLE_RECEPCION DR
-                                            INNER JOIN PRODUCTOS P ON P.COD_PRO = DR.COD_PRO_REC
-                                            WHERE NUM_BOD_PER = @NUM_BOD
-                                            GROUP BY P.NOM_PRO;";
+                        cmd.CommandText = @"SELECT P.NOM_PRO AS NOMBRE
+                                          ,CB.CANTIDAD AS CANTIDAD
+                                          FROM CONTENIDO_BODEGA CB
+                                          INNER JOIN PRODUCTOS P ON P.COD_PRO = CB.COD_PRO_CON
+                                         WHERE CB.NUM_BOD_CON = @NUM_BOD;";
                         cmd.Parameters.AddWithValue("@NUM_BOD", numBodega);
                         using (var dr = cmd.ExecuteReader())
                         {

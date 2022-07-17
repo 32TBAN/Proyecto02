@@ -13,18 +13,19 @@ namespace Entidades
         public int IdCliente { get; set; }
         public float Total { get; set; }
         public DateTime Fecha { get; set; }
+        public bool Estado { get; set; }
         public VentaEntidad()
         {
 
         }
-
-        public VentaEntidad(int num, int idUsuario, int idCliente, float total, DateTime fecha)
+        public VentaEntidad(int num, int idUsuario, int idCliente, float total, DateTime fecha, bool estado)
         {
             Num = num;
             IdUsuario = idUsuario;
             IdCliente = idCliente;
             Total = total;
             Fecha = fecha;
+            Estado = estado;
         }
     }
 }

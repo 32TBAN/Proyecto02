@@ -149,7 +149,7 @@ namespace Presentacion
             }
             else if (capacidadBodega < guna2NumericUpDown_Cantidad.Value)
             {
-                MessageBox.Show("La capacidad de la bodega es: " +capacidadBodega+"kg si nesecita una cantidad mayor seleccione otra bodega");
+                MessageBox.Show("La capacidad de la bodega es: " +capacidadBodega+"kg si necesita una cantidad mayor seleccione otra bodega");
                 return false;
             }
             return true;

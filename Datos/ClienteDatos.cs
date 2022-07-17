@@ -85,12 +85,16 @@ namespace Datos
                         clienteEntidad.Celular = dr["CEL_CLI"].ToString();
                         clienteEntidad.Email = dr["EMAIL"].ToString();
                     }
+                    else
+                    {
+                        return null;
+                    }
                 }
                 return clienteEntidad;
             }
             catch (Exception)
             {
-                throw;
+                return null;
             }
             finally
             {

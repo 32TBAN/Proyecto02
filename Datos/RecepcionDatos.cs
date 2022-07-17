@@ -43,10 +43,18 @@ namespace Datos
                          VALUES (@NUM_REC_REC, @COD_PRO_REC,@CANTIDAD,@SUBTOTAL,@NUM_BOD_PER);
 
                     UPDATE [dbo].[BODEGAS]
-                       SET [CAPACIDAD] = [CAPACIDAD]-@CANTIDAD
-                     WHERE NUM_BOD = @NUM_BOD_PER;
+                    SET [CAPACIDAD] = [CAPACIDAD]-@CANTIDAD
+                    WHERE NUM_BOD = @NUM_BOD_PER;
 
-                     SELECT SCOPE_IDENTITY();";
+                    UPDATE [dbo].[PRODUCTOS]
+                    SET [STOCK] = [STOCK]+@CANTIDAD
+                    WHERE [COD_PRO] = @COD_PRO_REC;
+
+                    UPDATE [dbo].[CONTENIDO_BODEGA]
+                    SET [CANTIDAD] = [CANTIDAD]+@CANTIDAD
+                    WHERE [NUM_BOD_CON] = @NUM_BOD_PER AND [COD_PRO_CON] = @COD_PRO_REC;
+                    
+                    SELECT SCOPE_IDENTITY();";
 
                     cmd.Parameters.AddWithValue("@NUM_REC_REC", item.NumRecepcion);
                     cmd.Parameters.AddWithValue("@COD_PRO_REC", item.CodProducto);

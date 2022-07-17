@@ -49,7 +49,6 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.Message.ToString());
             }
-
         }
 
         private void CargarContenidoBodega(int numBodega)

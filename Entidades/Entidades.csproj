@@ -44,6 +44,7 @@
     <Compile Include="BodegaEntidad.cs" />
     <Compile Include="ClienteEntidad.cs" />
     <Compile Include="DetalleRecepcionEntidad.cs" />
+    <Compile Include="DetalleVentaEntidad.cs" />
     <Compile Include="ProductoresEntidad.cs" />
     <Compile Include="ProductosEntidad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
