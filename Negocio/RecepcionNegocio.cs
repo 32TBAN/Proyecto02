@@ -14,5 +14,15 @@ namespace Negocio
         {
             return RecepcionDatos.ComenzarRecepcion(recepcionEntidad);
         }
+
+        public static bool AgregarProductoDetalle(List<DetalleRecepcionEntidad> detalleRecepcion)
+        {
+            return RecepcionDatos.AgregarProductoDetalle(detalleRecepcion);
+        }
+
+        public static List<DetalleRecepcionEntidad> DevolverProductosDetalle(int numRecepcion)
+        {
+            return RecepcionDatos.DevolverProductosDetalle(numRecepcion);
+        }
     }
 }

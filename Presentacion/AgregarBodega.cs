@@ -65,9 +65,22 @@ namespace Presentacion
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var num = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Num"].Value.ToString());
-            EliminarBodega(num);
-            
+            try
+            {
+                var num = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Num"].Value.ToString());
+                BuscarBodega(num);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        private void BuscarBodega(int num)
+        {
+            bodegaEntidad = BodegaNegocio.BuscarBodega(num);
+            guna2TextBox_Bodega.Text = bodegaEntidad.Ubicacion;
+            guna2NumericUpDown_Capacidad.Value = bodegaEntidad.Capacidad;
         }
 
         private void EliminarBodega(int num)
@@ -86,6 +99,18 @@ namespace Presentacion
                 {
                     MessageBox.Show("No se ha podido eliminar");
                 }
+            }
+        }
+
+        private void guna2Button_Elimianr_Click(object sender, EventArgs e)
+        {
+            if (bodegaEntidad.Num != 0)
+            {
+                EliminarBodega(bodegaEntidad.Num);
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una bodega");
             }
         }
     }

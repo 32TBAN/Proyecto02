@@ -35,6 +35,7 @@
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.guna2Button_Elimianr = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2NumericUpDown_Capacidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -113,7 +114,7 @@
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.Location = new System.Drawing.Point(12, 147);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(114, 45);
+            this.guna2Button1.Size = new System.Drawing.Size(75, 45);
             this.guna2Button1.TabIndex = 6;
             this.guna2Button1.Text = "Aceptar";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
@@ -129,9 +130,9 @@
             this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(62)))), ((int)(((byte)(43)))));
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(143, 147);
+            this.guna2Button2.Location = new System.Drawing.Point(93, 150);
             this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(114, 45);
+            this.guna2Button2.Size = new System.Drawing.Size(75, 45);
             this.guna2Button2.TabIndex = 7;
             this.guna2Button2.Text = "Cancelar";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
@@ -145,12 +146,31 @@
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
+            // guna2Button_Elimianr
+            // 
+            this.guna2Button_Elimianr.BorderRadius = 15;
+            this.guna2Button_Elimianr.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Button_Elimianr.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button_Elimianr.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button_Elimianr.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button_Elimianr.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button_Elimianr.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(62)))), ((int)(((byte)(43)))));
+            this.guna2Button_Elimianr.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button_Elimianr.ForeColor = System.Drawing.Color.White;
+            this.guna2Button_Elimianr.Location = new System.Drawing.Point(174, 150);
+            this.guna2Button_Elimianr.Name = "guna2Button_Elimianr";
+            this.guna2Button_Elimianr.Size = new System.Drawing.Size(75, 45);
+            this.guna2Button_Elimianr.TabIndex = 9;
+            this.guna2Button_Elimianr.Text = "Eliminar";
+            this.guna2Button_Elimianr.Click += new System.EventHandler(this.guna2Button_Elimianr_Click);
+            // 
             // AgregarBodega
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(69)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(613, 204);
+            this.Controls.Add(this.guna2Button_Elimianr);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.guna2Button1);
@@ -179,5 +199,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button_Elimianr;
     }
 }

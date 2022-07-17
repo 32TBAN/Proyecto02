@@ -11,7 +11,14 @@ namespace Negocio
     {
         public static BodegaEntidad Guardar(BodegaEntidad bodegaEntidad)
         {
-            return BodegaDatos.Guardar(bodegaEntidad);
+            if (bodegaEntidad.Num == 0)
+            {
+                return BodegaDatos.Guardar(bodegaEntidad);
+            }
+            else
+            {
+                return BodegaDatos.Actualizar(bodegaEntidad);
+            }
         }
 
         public static List<BodegaEntidad> DevolverBodegas()
@@ -27,6 +34,11 @@ namespace Negocio
         public static bool EliminarBodega(int num)
         {
             return BodegaDatos.EliminarBodega(num);
+        }
+
+        public static List<DetalleRecepcionEntidad> ListaContenidoBodega(int numBodega)
+        {
+            return BodegaDatos.ListaContenidoBodega(numBodega);
         }
     }
 }

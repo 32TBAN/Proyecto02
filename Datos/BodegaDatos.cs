@@ -23,6 +23,34 @@ namespace Datos
             return cmd;
         }
 
+        public static BodegaEntidad Actualizar(BodegaEntidad bodegaEntidad)
+        {
+                SqlConnection connection = new SqlConnection();
+                try
+                {
+                connection = ConexionSql();
+                SqlCommand cmd = ComandoSql(connection);
+                connection.Open();
+                cmd.CommandText = @"UPDATE [dbo].[BODEGAS]
+                                 SET [UBI_BOD] = @UBI_BOD,
+                                 [CAPACIDAD] = @CAPACIDAD
+                                 WHERE [NUM_BOD] = @NUM_BOD;";
+                cmd.Parameters.AddWithValue("@NUM_BOD", bodegaEntidad.Num);
+                cmd.Parameters.AddWithValue("@UBI_BOD", bodegaEntidad.Ubicacion);
+                cmd.Parameters.AddWithValue("@CAPACIDAD", bodegaEntidad.Capacidad);
+                cmd.ExecuteNonQuery();
+                return bodegaEntidad;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+
         public static BodegaEntidad BuscarBodega(int num)
         {
             SqlConnection connection = new SqlConnection();
@@ -57,6 +85,43 @@ namespace Datos
             {
                 connection.Close();
             }
+        }
+
+        public static List<DetalleRecepcionEntidad> ListaContenidoBodega(int numBodega)
+        {
+            try
+            {
+                List<DetalleRecepcionEntidad> listaProductosBodega = new List<DetalleRecepcionEntidad>();
+                using (var connection  = ConexionSql())
+                {
+                    using (var cmd = ComandoSql(connection))
+                    {
+                        connection.Open();
+                        cmd.CommandText = @"SELECT P.NOM_PRO AS NOMBRE, SUM(CANTIDAD) AS CANTIDAD
+                                            FROM DETALLE_RECEPCION DR
+                                            INNER JOIN PRODUCTOS P ON P.COD_PRO = DR.COD_PRO_REC
+                                            WHERE NUM_BOD_PER = @NUM_BOD
+                                            GROUP BY P.NOM_PRO;";
+                        cmd.Parameters.AddWithValue("@NUM_BOD", numBodega);
+                        using (var dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                DetalleRecepcionEntidad detalleRecepcionEntidad = new DetalleRecepcionEntidad();
+                                detalleRecepcionEntidad.NombreProducto = dr["NOMBRE"].ToString();
+                                detalleRecepcionEntidad.Cantidad = Convert.ToInt32(dr["CANTIDAD"].ToString());
+                                listaProductosBodega.Add(detalleRecepcionEntidad);
+                            }
+                        }
+                    }
+                }
+                return listaProductosBodega;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
 
         public static bool EliminarBodega(int num)
