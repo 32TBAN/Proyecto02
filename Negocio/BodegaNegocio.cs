@@ -36,6 +36,11 @@ namespace Negocio
             return BodegaDatos.EliminarBodega(num);
         }
 
+        public static List<DetalleRecepcionEntidad> ListaCantidadProductoBodega(int valor)
+        {
+            return BodegaDatos.ListaCantidadProductoBodega(valor);
+        }
+
         public static List<DetalleRecepcionEntidad> ListaContenidoBodega(int numBodega)
         {
             return BodegaDatos.ListaContenidoBodega(numBodega);

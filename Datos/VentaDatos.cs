@@ -58,6 +58,33 @@ namespace Datos
             }
         }
 
+        public static bool EliminarProductoDetalle(int codProducto, int numVenta)
+        {
+            SqlConnection connection = new SqlConnection();
+            try
+            {
+                connection = ConexionSql();
+                SqlCommand cmd = ComandoSql(connection);
+                connection.Open();
+                cmd.CommandText = @"DELETE FROM [dbo].[DETALLE_VENTAS]
+                                    WHERE [COD_PRO_VEN]=@NUM_PRO AND [NUM_VEN_PER]=@NUM_VENT;";
+                cmd.Parameters.AddWithValue("@NUM_PRO", codProducto);
+                cmd.Parameters.AddWithValue("@NUM_VENT", numVenta);
+
+                var filasAfectadas = Convert.ToInt32(cmd.ExecuteNonQuery());
+
+                return filasAfectadas > 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         public static List<DetalleVentaEntidad> DevolverDetalle(int num)
         {
             SqlConnection connection = new SqlConnection();
@@ -99,6 +126,10 @@ namespace Datos
             catch (Exception)
             {
                 throw;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 

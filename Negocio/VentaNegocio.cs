@@ -37,5 +37,10 @@ namespace Negocio
         {
             return VentaDatos.DevolverDetalle(num);
         }
+
+        public static bool EliminarProductoDetalle(int codProducto, int numVenta)
+        {
+            return VentaDatos.EliminarProductoDetalle(codProducto,numVenta);
+        }
     }
 }

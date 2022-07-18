@@ -287,5 +287,35 @@ namespace Presentacion
         {
             Nuevo();
         }
+
+        private void dataGridView_ProductosDetalle_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int productoEliminar = Convert.ToInt32(dataGridView_ProductosDetalle.Rows[e.RowIndex].Cells["CodProducto"].Value.ToString());
+                EliminarProducto(productoEliminar);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error no ha seleccionado una fila valida" +
+                    " " + ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void EliminarProducto(int productoEliminar)
+        {
+            if (MessageBox.Show("Esta seguro de eliminar este producto", "Eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+                            == DialogResult.OK)
+            {
+                if (VentaNegocio.EliminarProductoDetalle(productoEliminar,ventaEntidad.Num))
+                {
+                    MessageBox.Show("Se ha eliminado");
+                }
+                else
+                {
+                    MessageBox.Show("Error al eliminar");
+                }
+            }
+        }
     }
 }

@@ -9,7 +9,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Negocio;
+using Entidades;
 namespace Presentacion
 {
     public partial class Inicio : Form
@@ -27,7 +28,16 @@ namespace Presentacion
 
         private void Componetes()
         {
+            CargarValorGrafica(10);
             iconButton_InfoPersonal.Visible = false;
+        }
+
+        private void CargarValorGrafica(int valor)
+        {
+            chart_Grafica.DataSource = BodegaNegocio.ListaCantidadProductoBodega(valor);
+            chart_Grafica.Series[0].XValueMember = "NumBodega";
+            chart_Grafica.Series[0].YValueMembers = "Cantidad";
+            chart_Grafica.DataBind();
         }
         #region Diseño
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -128,6 +138,7 @@ namespace Presentacion
             CerrarFormularios<Almacen>();
             CerrarFormularios<Reporte>();
             pictureBox_Referencia.Image = null;
+            CargarValorGrafica(10);
         }
 
         public void CerrarFormularios<MiForm>() where MiForm : Form, new()
@@ -183,21 +194,29 @@ namespace Presentacion
         private void pictureBox7_Click(object sender, EventArgs e)
         {
             CambioarImagen(sender);
+            CargarValorGrafica(8);
+
         }
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
             CambioarImagen(sender);
+            CargarValorGrafica(1);
+
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
             CambioarImagen(sender);
+            CargarValorGrafica(3);
+
         }
 
         private void pictureBox10_Click(object sender, EventArgs e)
         {
             CambioarImagen(sender);
+            CargarValorGrafica(9);
+
         }
         #endregion
 

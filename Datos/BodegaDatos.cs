@@ -51,6 +51,41 @@ namespace Datos
                 }
             }
 
+        public static List<DetalleRecepcionEntidad> ListaCantidadProductoBodega(int valor)
+        {
+            try
+            {
+                List<DetalleRecepcionEntidad> listaProductosBodega = new List<DetalleRecepcionEntidad>();
+                using (var connection = ConexionSql())
+                {
+                    using (var cmd = ComandoSql(connection))
+                    {
+                        connection.Open();
+                        cmd.CommandText = @"select NUM_BOD_CON, SUM(CANTIDAD) AS CANTIDAD
+                                            from CONTENIDO_BODEGA
+                                            WHERE COD_PRO_CON = @COD_PRO
+                                            GROUP BY NUM_BOD_CON;";
+                        cmd.Parameters.AddWithValue("@COD_PRO", valor);
+                        using (var dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                DetalleRecepcionEntidad detalleRecepcionEntidad = new DetalleRecepcionEntidad();
+                                detalleRecepcionEntidad.NumBodega = Convert.ToInt32(dr["NUM_BOD_CON"].ToString());
+                                detalleRecepcionEntidad.Cantidad = Convert.ToInt32(dr["CANTIDAD"].ToString());
+                                listaProductosBodega.Add(detalleRecepcionEntidad);
+                            }
+                        }
+                    }
+                }
+                return listaProductosBodega;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public static BodegaEntidad BuscarBodega(int num)
         {
             SqlConnection connection = new SqlConnection();

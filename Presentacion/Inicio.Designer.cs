@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.AnimatorNS.Animation animation2 = new Guna.UI2.AnimatorNS.Animation();
+            Guna.UI2.AnimatorNS.Animation animation1 = new Guna.UI2.AnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2CustomGradientPanel_InfoPersonal = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.iconButton_CerrarInfo = new FontAwesome.Sharp.IconButton();
@@ -75,6 +79,7 @@
             this.guna2CustomGradientPanel11 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pictureBox_Principal = new System.Windows.Forms.PictureBox();
             this.guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.pictureBox_Referencia = new System.Windows.Forms.PictureBox();
             this.iconButton_InfoPersonal = new FontAwesome.Sharp.IconButton();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label_Lugar = new System.Windows.Forms.Label();
@@ -85,7 +90,7 @@
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.guna2Transition1 = new Guna.UI2.WinForms.Guna2Transition();
-            this.pictureBox_Referencia = new System.Windows.Forms.PictureBox();
+            this.chart_Grafica = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.guna2CustomGradientPanel_InfoPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
@@ -98,6 +103,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Ventas)).BeginInit();
             this.guna2CustomGradientPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Reporte)).BeginInit();
+            this.guna2CustomGradientPanel10.SuspendLayout();
             this.guna2CustomGradientPanel6.SuspendLayout();
             this.guna2CustomGradientPanel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -110,9 +116,10 @@
             this.guna2CustomGradientPanel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Principal)).BeginInit();
             this.guna2CustomGradientPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Referencia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Referencia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_Grafica)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2CustomGradientPanel2
@@ -652,6 +659,7 @@
             this.guna2CustomGradientPanel10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.guna2CustomGradientPanel10.BorderRadius = 15;
             this.guna2CustomGradientPanel10.BorderThickness = 1;
+            this.guna2CustomGradientPanel10.Controls.Add(this.chart_Grafica);
             this.guna2Transition1.SetDecoration(this.guna2CustomGradientPanel10, Guna.UI2.AnimatorNS.DecorationType.None);
             this.guna2CustomGradientPanel10.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
             this.guna2CustomGradientPanel10.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
@@ -856,6 +864,16 @@
             this.guna2CustomGradientPanel3.Size = new System.Drawing.Size(786, 82);
             this.guna2CustomGradientPanel3.TabIndex = 2;
             // 
+            // pictureBox_Referencia
+            // 
+            this.guna2Transition1.SetDecoration(this.pictureBox_Referencia, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.pictureBox_Referencia.Location = new System.Drawing.Point(7, 26);
+            this.pictureBox_Referencia.Name = "pictureBox_Referencia";
+            this.pictureBox_Referencia.Size = new System.Drawing.Size(50, 36);
+            this.pictureBox_Referencia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_Referencia.TabIndex = 17;
+            this.pictureBox_Referencia.TabStop = false;
+            // 
             // iconButton_InfoPersonal
             // 
             this.iconButton_InfoPersonal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(127)))), ((int)(((byte)(242)))));
@@ -1019,32 +1037,51 @@
             // 
             this.guna2Transition1.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Particles;
             this.guna2Transition1.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 1;
-            animation2.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 2F;
-            animation2.TransparencyCoeff = 0F;
-            this.guna2Transition1.DefaultAnimation = animation2;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 1;
+            animation1.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 2F;
+            animation1.TransparencyCoeff = 0F;
+            this.guna2Transition1.DefaultAnimation = animation1;
             // 
-            // pictureBox_Referencia
+            // chart_Grafica
             // 
-            this.guna2Transition1.SetDecoration(this.pictureBox_Referencia, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.pictureBox_Referencia.Location = new System.Drawing.Point(7, 26);
-            this.pictureBox_Referencia.Name = "pictureBox_Referencia";
-            this.pictureBox_Referencia.Size = new System.Drawing.Size(50, 36);
-            this.pictureBox_Referencia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_Referencia.TabIndex = 17;
-            this.pictureBox_Referencia.TabStop = false;
+            this.chart_Grafica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
+            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
+            chartArea1.Name = "ChartArea1";
+            this.chart_Grafica.ChartAreas.Add(chartArea1);
+            this.guna2Transition1.SetDecoration(this.chart_Grafica, Guna.UI2.AnimatorNS.DecorationType.None);
+            legend1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.Name = "Legend1";
+            this.chart_Grafica.Legends.Add(legend1);
+            this.chart_Grafica.Location = new System.Drawing.Point(4, 19);
+            this.chart_Grafica.Name = "chart_Grafica";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            series1.IsValueShownAsLabel = true;
+            series1.LabelForeColor = System.Drawing.Color.White;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart_Grafica.Series.Add(series1);
+            this.chart_Grafica.Size = new System.Drawing.Size(170, 243);
+            this.chart_Grafica.TabIndex = 0;
+            this.chart_Grafica.Text = "f";
+            title1.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.Name = "Title1";
+            title1.Text = "Cantidad producto x Bodega";
+            this.chart_Grafica.Titles.Add(title1);
             // 
             // Inicio
             // 
@@ -1075,6 +1112,7 @@
             this.guna2CustomGradientPanel9.ResumeLayout(false);
             this.guna2CustomGradientPanel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Reporte)).EndInit();
+            this.guna2CustomGradientPanel10.ResumeLayout(false);
             this.guna2CustomGradientPanel6.ResumeLayout(false);
             this.guna2CustomGradientPanel15.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
@@ -1088,9 +1126,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Principal)).EndInit();
             this.guna2CustomGradientPanel3.ResumeLayout(false);
             this.guna2CustomGradientPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Referencia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.guna2CustomGradientPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Referencia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_Grafica)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1153,5 +1192,6 @@
         private System.Windows.Forms.PictureBox pictureBox_Principal;
         private Guna.UI2.WinForms.Guna2Transition guna2Transition1;
         private System.Windows.Forms.PictureBox pictureBox_Referencia;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_Grafica;
     }
 }
