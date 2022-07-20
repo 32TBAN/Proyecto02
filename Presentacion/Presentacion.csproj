@@ -166,6 +166,9 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Entidades.ConsultasEntidad.datasource" />
+    <None Include="Properties\DataSources\Entidades.ConsultaStockProductos.datasource" />
+    <None Include="Properties\DataSources\Entidades.ConsultaTopProductos.datasource" />
+    <None Include="Properties\DataSources\Entidades.ListaConsulta1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
