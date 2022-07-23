@@ -24,7 +24,7 @@ namespace Datos
             return cmd;
         }
 
-        public static List<ListaConsulta1> ConsultaMontoFecha(DateTime fechaInicio, DateTime fechaFin, int numDias)
+        public static List<ListaConsulta1> ConsultaMontoFecha(ConsultasEntidad consultaDatos)
         {
             try
             {
@@ -39,8 +39,8 @@ namespace Datos
                                             FROM VENTAS
                                             WHERE FEC_VENTA BETWEEN @fechaInicio AND @fechaFin
                                             GROUP BY FEC_VENTA;";
-                        cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
-                        cmd.Parameters.AddWithValue("@fechaFin", fechaFin);
+                        cmd.Parameters.AddWithValue("@fechaInicio", consultaDatos.FechaInicio);
+                        cmd.Parameters.AddWithValue("@fechaFin", consultaDatos.FechaFin);
 
                         using (var dr = cmd.ExecuteReader())
                         {
@@ -53,20 +53,8 @@ namespace Datos
                                 }
                             }
                         }
-                        //horas
-                        if (numDias <= 1)
-                        {
-                            listaConsultaR = (from orderList in listaConsulta
-                                                group orderList by orderList.Key.ToString("hh tt")
-                                               into order
-                                                select new ListaConsulta1
-                                                {
-                                                    Fecha = order.Key,
-                                                    Monto = order.Sum(amount => amount.Value)
-                                                }).ToList();
-                        }
-                        //dias
-                        else if (numDias <= 30)
+
+                      if (consultaDatos.NumDias <= 30)
                         {
                             listaConsultaR = (from orderList in listaConsulta
                                               group orderList by orderList.Key.ToString("dd MMM")
@@ -77,7 +65,7 @@ namespace Datos
                                                     Monto = order.Sum(amount => amount.Value)
                                                 }).ToList();
                         }//Semanas
-                        else if (numDias <= 92)
+                        else if (consultaDatos.NumDias <= 92)
                         {
                             listaConsultaR = (from orderList in listaConsulta
                                               group orderList by CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(
@@ -90,9 +78,9 @@ namespace Datos
                                                 }).ToList();
                         }
                         //Meses
-                        else if (numDias <= (365 * 2))
+                        else if (consultaDatos.NumDias <= (365 * 2))
                         {
-                            bool isYear = numDias <= 365 ? true : false;
+                            bool isYear = consultaDatos.NumDias <= 365 ? true : false;
                             listaConsultaR = (from orderList in listaConsulta
                                               group orderList by orderList.Key.ToString("MMM yyyy")
                                                into order
@@ -124,7 +112,7 @@ namespace Datos
             }
         }
 
-        public static List<ConsultaTopProductos> ConsultaTopProductos(DateTime fechaInicio, DateTime fechaFin)
+        public static List<ConsultaTopProductos> ConsultaTopProductos(ConsultasEntidad consultaDatos)
         {
             try
             {
@@ -141,8 +129,8 @@ namespace Datos
                                             WHERE V.FEC_VENTA BETWEEN @fechaInicio AND @fechaFin
                                             GROUP BY P.NOM_PRO
                                             ORDER BY CANTIDAD DESC;";
-                        cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
-                        cmd.Parameters.AddWithValue("@fechaFin", fechaFin);
+                        cmd.Parameters.AddWithValue("@fechaInicio", consultaDatos.FechaInicio);
+                        cmd.Parameters.AddWithValue("@fechaFin", consultaDatos.FechaFin);
 
                         using (var dr = cmd.ExecuteReader())
                         {
@@ -165,7 +153,7 @@ namespace Datos
             }
         }
 
-        public static List<ConsultaStockProductos> ConsultaStockFecha(DateTime fechaInicio, DateTime fechaFin)
+        public static List<ConsultaStockProductos> ConsultaStockFecha(ConsultasEntidad consultaDatos)
         {
             try
             {
@@ -178,12 +166,9 @@ namespace Datos
                         cmd.CommandText = @"SELECT P.NOM_PRO AS NOMBRE, SUM(CB.CANTIDAD) AS CANTIDAD
                                              FROM CONTENIDO_BODEGA CB
                                              INNER JOIN PRODUCTOS P ON CB.COD_PRO_CON = P.COD_PRO
-                                             WHERE CB.COD_PRO_CON IN (SELECT COD_PRO
-                                            						 FROM VENTAS
-                                            						 WHERE FEC_VENTA BETWEEN @fechaInicio AND @fechaFin)
                                              GROUP BY P.NOM_PRO;";
-                        cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
-                        cmd.Parameters.AddWithValue("@fechaFin", fechaFin);
+                        cmd.Parameters.AddWithValue("@fechaInicio", consultaDatos.FechaInicio);
+                        cmd.Parameters.AddWithValue("@fechaFin", consultaDatos.FechaFin);
 
                         using (var dr = cmd.ExecuteReader())
                         {
@@ -210,26 +195,20 @@ namespace Datos
         {
             try
             {
-                ConsultasEntidad consultas = new ConsultasEntidad();
+              
                 using (var connection = ConexionSql())
                 {
                     using (var cmd = ComandoSql(connection))
                     {
                         connection.Open();
-                        cmd.CommandText = @"SELECT COUNT(NUM_VEN) AS CANTIDAD
+                        cmd.CommandText = @"SELECT COUNT(NUM_VEN)
                                             FROM VENTAS
                                             WHERE FEC_VENTA BETWEEN @fechaInicio AND @fechaFin;";
                         cmd.Parameters.AddWithValue("@fechaInicio", consultaDatos.FechaInicio);
                         cmd.Parameters.AddWithValue("@fechaFin", consultaDatos.FechaFin);
 
-                        using (var dr = cmd.ExecuteReader())
-                        {
-                            dr.Read();
-                            if (dr.HasRows)
-                            {
-                                consultas.NumVentas = Convert.ToInt32(dr["CANTIDAD"].ToString());
-                            }
-                        }
+                        consultaDatos.NumVentas = (int)cmd.ExecuteScalar();
+                        connection.Close();
                     }
                 }
 
@@ -238,20 +217,15 @@ namespace Datos
                     using (var cmd = ComandoSql(connection))
                     {
                         connection.Open();
-                        cmd.CommandText = @"SELECT  COUNT(DISTINCT ID_CLI_VEN) as NumClientes
+                        cmd.CommandText = @"SELECT COUNT(DISTINCT ID_CLI_VEN)
                                             FROM VENTAS 
                                             WHERE FEC_VENTA BETWEEN @fechaInicio AND @fechaFin;";
                         cmd.Parameters.AddWithValue("@fechaInicio", consultaDatos.FechaInicio);
                         cmd.Parameters.AddWithValue("@fechaFin", consultaDatos.FechaFin);
 
-                        using (var dr = cmd.ExecuteReader())
-                        {
-                            dr.Read();
-                            if (dr.HasRows)
-                            {
-                                consultas.NumClientes = Convert.ToInt32(dr["NumClientes"].ToString());
-                            }
-                        }
+                        consultaDatos.NumClientes = (int)cmd.ExecuteScalar();
+                        connection.Close();
+
                     }
                 }
 
@@ -260,20 +234,15 @@ namespace Datos
                     using (var cmd = ComandoSql(connection))
                     {
                         connection.Open();
-                        cmd.CommandText = @"SELECT COUNT(DISTINCT ID_PRO_REC) AS NUMPRODUCTORES
+                        cmd.CommandText = @"SELECT COUNT(DISTINCT ID_PRO_REC)
                                             FROM RECEPCION_PRO
                                             WHERE FEC_REC BETWEEN @fechaInicio AND @fechaFin;";
                         cmd.Parameters.AddWithValue("@fechaInicio", consultaDatos.FechaInicio);
                         cmd.Parameters.AddWithValue("@fechaFin", consultaDatos.FechaFin);
 
-                        using (var dr = cmd.ExecuteReader())
-                        {
-                            dr.Read();
-                            if (dr.HasRows)
-                            {
-                                consultas.NumProductores = Convert.ToInt32(dr["NUMPRODUCTORES"].ToString());
-                            }
-                        }
+                        consultaDatos.NumProductores = (int)cmd.ExecuteScalar();
+                        connection.Close();
+
                     }
                 }
 
@@ -289,14 +258,9 @@ namespace Datos
                         cmd.Parameters.AddWithValue("@fechaInicio", consultaDatos.FechaInicio);
                         cmd.Parameters.AddWithValue("@fechaFin", consultaDatos.FechaFin);
 
-                        using (var dr = cmd.ExecuteReader())
-                        {
-                            dr.Read();
-                            if (dr.HasRows)
-                            {
-                                consultas.NumProductos = Convert.ToInt32(dr["NUMPRODUCTOS"].ToString());
-                            }
-                        }
+                        consultaDatos.NumProductos = (int)cmd.ExecuteScalar();
+                        connection.Close();
+
                     }
                 }
 
@@ -305,20 +269,18 @@ namespace Datos
                     using (var cmd = ComandoSql(connection))
                     {
                         connection.Open();
-                        cmd.CommandText = @"SELECT SUM(TOTAL) TOTAL
-                                            FROM VENTAS
+                        cmd.CommandText = @"SELECT CASE WHEN SUM(TOTAL) IS NULL THEN 0
+                                            ELSE SUM(TOTAL) END AS TOTAL
+                                            FROM VENTAS 
                                             WHERE FEC_VENTA BETWEEN @fechaInicio AND @fechaFin;";
                         cmd.Parameters.AddWithValue("@fechaInicio", consultaDatos.FechaInicio);
                         cmd.Parameters.AddWithValue("@fechaFin", consultaDatos.FechaFin);
 
-                        using (var dr = cmd.ExecuteReader())
-                        {
-                            dr.Read();
-                            if (dr.HasRows)
-                            {
-                                consultas.TotalIngresos = Convert.ToSingle(dr["TOTAL"].ToString());
-                            }
-                        }
+
+                        consultaDatos.TotalIngresos = Convert.ToSingle(cmd.ExecuteScalar());
+            
+                        connection.Close();
+
                     }
                 }
 
@@ -327,24 +289,25 @@ namespace Datos
                     using (var cmd = ComandoSql(connection))
                     {
                         connection.Open();
-                        cmd.CommandText = @"SELECT SUM(TOTAL) TOTAL
+                        cmd.CommandText = @"SELECT CASE WHEN SUM(TOTAL) IS NULL THEN 0
+                                            ELSE SUM(TOTAL) END AS TOTAL
                                             FROM RECEPCION_PRO
                                             WHERE FEC_REC BETWEEN @fechaInicio AND @fechaFin;";
                         cmd.Parameters.AddWithValue("@fechaInicio", consultaDatos.FechaInicio);
                         cmd.Parameters.AddWithValue("@fechaFin", consultaDatos.FechaFin);
+      
+                        consultaDatos.TotalBeneficio = Convert.ToSingle(cmd.ExecuteScalar());
+                        
+                        connection.Close();
 
-                        using (var dr = cmd.ExecuteReader())
-                        {
-                            dr.Read();
-                            if (dr.HasRows)
-                            {
-                                consultas.TotalBeneficio = Convert.ToSingle(dr["TOTAL"].ToString());
-                            }
-                        }
                     }
                 }
-                consultas.TotalBeneficio -= consultas.TotalIngresos;
-                return consultas;
+                consultaDatos.TotalBeneficio -= consultaDatos.TotalIngresos;
+                if (consultaDatos.TotalBeneficio < 1)
+                {
+                    consultaDatos.TotalBeneficio = 0;
+                }
+                return consultaDatos;
             }
             catch (Exception)
             {

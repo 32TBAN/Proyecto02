@@ -16,7 +16,7 @@ namespace Presentacion
         ProductoresEntidad productoresEntidad = new ProductoresEntidad();
         RecepcionEntidad recepcionEntidad = new RecepcionEntidad();
         List<DetalleRecepcionEntidad> listaRecepcion = new List<DetalleRecepcionEntidad>();
-        int capacidadBodega = 0;
+        DetalleRecepcionEntidad detalleRecepcion = new DetalleRecepcionEntidad();
         public Recepcion()
         {
             InitializeComponent();
@@ -39,6 +39,7 @@ namespace Presentacion
         {
             if (ComprobarDatos())
             {
+                productoresEntidad = new ProductoresEntidad();
                 productoresEntidad.Cedula = guna2TextBox_Cedula.Text;
                 productoresEntidad.Nombre = guna2TextBox_Nombre.Text;
                 productoresEntidad.Direccion = guna2TextBox_Direccion.Text;
@@ -59,6 +60,24 @@ namespace Presentacion
                 }
             }
         }
+        #region Recepcion
+        private void ComenzarRecepcion()
+        {
+            if (productoresEntidad != null)
+            {
+                recepcionEntidad = new RecepcionEntidad();
+                recepcionEntidad.IdUsuario = 1;
+                recepcionEntidad.IdProductor = productoresEntidad.Id;
+                recepcionEntidad.FechaRecepcion = DateTime.UtcNow;
+                recepcionEntidad.Total = Convert.ToSingle(guna2TextBox_Total.Text);
+                recepcionEntidad = RecepcionNegocio.ComenzarRecepcion(recepcionEntidad);
+                if (recepcionEntidad == null)
+                {
+                    MessageBox.Show("Error al realizar la recepcion");
+                }
+            }
+        }
+        #endregion
         private bool ComprobarDatos()
         {
             if (guna2TextBox_Cedula.Text == "" || guna2TextBox_Nombre.Text == "" ||
@@ -106,32 +125,49 @@ namespace Presentacion
         {
             if (ControlDatosAgregarProducto())
             {
-                DetalleRecepcionEntidad detalleRecepcion = new DetalleRecepcionEntidad();
+                listaRecepcion = RecepcionNegocio.DevolverProductosDetalle(recepcionEntidad.NumRec); 
+
                 detalleRecepcion.NumRecepcion = recepcionEntidad.NumRec;
                 detalleRecepcion.CodProducto = ((ProductosEntidad)guna2ComboBox_Producto.SelectedValue).Id;
                 detalleRecepcion.NombreProducto = ((ProductosEntidad)guna2ComboBox_Producto.SelectedValue).Nombre;
-                detalleRecepcion.Cantidad = Convert.ToInt32(guna2NumericUpDown_Cantidad.Value);
-                detalleRecepcion.Subtotal = ((ProductosEntidad)guna2ComboBox_Producto.SelectedValue).Precio *
-                    detalleRecepcion.Cantidad;
                 detalleRecepcion.NumBodega = ((BodegaEntidad)guna2ComboBox_Bodega.SelectedValue).Num;
 
-                capacidadBodega -= detalleRecepcion.Cantidad;
-
-                bool aumento = false;
-                foreach (var item in listaRecepcion)
+                if (listaRecepcion == null)
                 {
-                    if (item.CodProducto == detalleRecepcion.CodProducto)
+                    detalleRecepcion.Cantidad = (int)guna2NumericUpDown_Cantidad.Value;
+                    detalleRecepcion.Subtotal = (detalleRecepcion.Cantidad * ((ProductosEntidad)guna2ComboBox_Producto.SelectedValue).Precio);
+                    detalleRecepcion = RecepcionNegocio.AgregarProductoDetalle(detalleRecepcion, true);
+                }
+                else
+                {
+                    bool encontrado = false;
+                    foreach (var item in listaRecepcion)
                     {
-                        var cantidadAnterior = item.Cantidad;
-                        item.Cantidad += detalleRecepcion.Cantidad;
-                        item.Subtotal = (item.Subtotal*item.Cantidad)/cantidadAnterior;
-                        aumento = true;
+                        if (item.CodProducto == detalleRecepcion.CodProducto)
+                        {
+                            detalleRecepcion.Cantidad = item.Cantidad + (int)guna2NumericUpDown_Cantidad.Value;
+                            detalleRecepcion.Subtotal = (detalleRecepcion.Cantidad * ((ProductosEntidad)guna2ComboBox_Producto.SelectedValue).Precio);
+                            detalleRecepcion = RecepcionNegocio.AgregarProductoDetalle(detalleRecepcion, false);
+                            encontrado = true;
+                        }
+                    }
+                    if (!encontrado)
+                    {
+                        detalleRecepcion.Cantidad = (int)guna2NumericUpDown_Cantidad.Value;
+                        detalleRecepcion.Subtotal = (detalleRecepcion.Cantidad * ((ProductosEntidad)guna2ComboBox_Producto.SelectedValue).Precio);
+                        detalleRecepcion = RecepcionNegocio.AgregarProductoDetalle(detalleRecepcion, true);
                     }
                 }
-                if (!aumento)
-                    listaRecepcion.Add(detalleRecepcion);
 
-                CargarDatosProductoDetalle();
+                if (detalleRecepcion != null)
+                {
+                    listaRecepcion = RecepcionNegocio.DevolverProductosDetalle(recepcionEntidad.NumRec);
+                    CargarDatosProductoDetalle();
+                }
+                else
+                {
+                    MessageBox.Show("Error al agregar producto");
+                }
             }
         }
         private bool ControlDatosAgregarProducto()
@@ -147,11 +183,16 @@ namespace Presentacion
                 MessageBox.Show("Escoja una cantidad valida");
                 return false;
             }
-            else if (capacidadBodega < guna2NumericUpDown_Cantidad.Value)
+            else
             {
-                MessageBox.Show("La capacidad de la bodega es: " +capacidadBodega+"kg si necesita una cantidad mayor seleccione otra bodega");
-                return false;
+                BodegaEntidad bodegaCap = BodegaNegocio.BuscarBodega(((BodegaEntidad)guna2ComboBox_Bodega.SelectedValue).Num);
+                if (bodegaCap.Capacidad < guna2NumericUpDown_Cantidad.Value)
+                {
+                    MessageBox.Show("La capacidad de la bodega es: " + bodegaCap.Capacidad + "kg si necesita una cantidad mayor seleccione otra bodega");
+                    return false;
+                }
             }
+       
             return true;
         }
         private void CargarDatosProductoDetalle()
@@ -170,96 +211,20 @@ namespace Presentacion
         }
         #endregion
 
-        #region Recepcion
-        private void ComenzarRecepcion()
-        {
-            recepcionEntidad = new RecepcionEntidad();
-            recepcionEntidad.IdUsuario = 1;
-            recepcionEntidad.IdProductor = productoresEntidad.Id;
-            recepcionEntidad.FechaRecepcion = DateTime.UtcNow;
-        }
-        #endregion
+
 
         #region FinalizarCompra
         private void guna2GradientButton4_Click(object sender, EventArgs e)
         {
-            if (ComprobarDatosEnviar())
+            recepcionEntidad.Total = Convert.ToSingle(guna2TextBox_Total.Text);
+            recepcionEntidad = RecepcionNegocio.ComenzarRecepcion(recepcionEntidad);
+            if (recepcionEntidad != null)
             {
-                FinalizarCompraProductos();
-                ComprobarCapacidadBodegas();
+                MessageBox.Show("Se ha finalizado la recepcion");
                 Nuevo();
             }
         }
 
-        private bool ComprobarDatosEnviar()
-        {   
-            if (productoresEntidad == null)
-            {
-                MessageBox.Show("Error en los datos del producto");
-                return false;
-            }
-            else if (listaRecepcion.Count() == 0)
-            {
-                MessageBox.Show("Error no ha ingresado ningun producto");
-                return false;
-            }
-            else if (recepcionEntidad == null)
-            {
-                MessageBox.Show("Error al realizar la recepcion");
-                return false;
-            }
-            else if (ComprobarCapacidadBodegas())
-            {
-                MessageBox.Show("Error no se ha finalizado la compra");
-                return false;
-            }
-            return true;
-        }
-
-        private bool ComprobarCapacidadBodegas()
-        {
-            foreach (var item in listaRecepcion)
-            {
-              BodegaEntidad bodegaEntidad = BodegaNegocio.BuscarBodega(item.NumBodega);
-                if (item.Cantidad > bodegaEntidad.Capacidad)
-                {
-                    MessageBox.Show("Se ha superado la capacidad de la bodega num: "+ item.NumBodega +
-                        "\nContacte con el administrador");
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        private void FinalizarCompraProductos()
-        {
-            CargarDatosRecepcion();
-            CargarDatosProductos();
-        }
-        private void CargarDatosRecepcion()
-        {
-            recepcionEntidad.Total = Convert.ToSingle(guna2TextBox_Total.Text);
-            recepcionEntidad = RecepcionNegocio.ComenzarRecepcion(recepcionEntidad);
-            if (recepcionEntidad == null)
-            {
-                MessageBox.Show("Error al realizar la recepcion");
-            }
-        }
-        private void CargarDatosProductos()
-        {
-            foreach (var item in listaRecepcion)
-            {
-                item.NumRecepcion = recepcionEntidad.NumRec;
-            }
-            if (RecepcionNegocio.AgregarProductoDetalle(listaRecepcion))
-            {
-                MessageBox.Show("Se ha agregado producto");
-            }
-            else
-            {
-                MessageBox.Show("Error al agregar producto");
-            }
-        }
         #endregion
 
         #region OtrasFunciones
@@ -278,7 +243,6 @@ namespace Presentacion
         private void guna2ComboBox_Bodega_SelectedValueChanged(object sender, EventArgs e)
         {
             DefinirUbicacion(((BodegaEntidad)guna2ComboBox_Bodega.SelectedValue).Num);
-            capacidadBodega = ((BodegaEntidad)guna2ComboBox_Bodega.SelectedValue).Capacidad;
         }
 
         private void CargarComponentes()
@@ -300,7 +264,6 @@ namespace Presentacion
             guna2ComboBox_Bodega.DisplayMember = "Num";
 
             DefinirUbicacion(((BodegaEntidad)guna2ComboBox_Bodega.SelectedValue).Num);
-            capacidadBodega = ((BodegaEntidad)guna2ComboBox_Bodega.SelectedValue).Capacidad;
         }
 
         private void DefinirUbicacion(int selectedValue)
@@ -322,10 +285,11 @@ namespace Presentacion
             guna2TextBox_TelefonoAdi.Text = "";
             guna2TextBox_Email.Text = "";
             guna2TextBox_Total.Text = "0";
+            guna2TextBox_CedulaProductor.Text = "";
 
-            productoresEntidad = null;
+            productoresEntidad = new ProductoresEntidad();
             listaRecepcion.Clear();
-            recepcionEntidad = null;
+            recepcionEntidad = new RecepcionEntidad();
             dataGridView_ProductosDetalle.DataSource = null;
             CargarBodegas();
         }
@@ -354,7 +318,6 @@ namespace Presentacion
                     if (item.CodProducto == productoEliminar)
                     {
                         recepcionEntidadBuscado = item;
-                        capacidadBodega += item.Cantidad;
                         break;
                     }
                 }
@@ -371,6 +334,11 @@ namespace Presentacion
             {
                 e.Handled = true;
             }
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            Nuevo();
         }
     }
 }

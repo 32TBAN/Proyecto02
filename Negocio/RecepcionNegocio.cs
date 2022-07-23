@@ -12,12 +12,26 @@ namespace Negocio
     {
         public static RecepcionEntidad ComenzarRecepcion(RecepcionEntidad recepcionEntidad)
         {
-            return RecepcionDatos.ComenzarRecepcion(recepcionEntidad);
+            if (recepcionEntidad.NumRec == 0)
+            {
+                return RecepcionDatos.ComenzarRecepcion(recepcionEntidad);
+            }
+            else
+            {
+                return RecepcionDatos.ActualizarRecepcion(recepcionEntidad);
+            }
         }
 
-        public static bool AgregarProductoDetalle(List<DetalleRecepcionEntidad> detalleRecepcion)
+        public static DetalleRecepcionEntidad AgregarProductoDetalle(DetalleRecepcionEntidad detalleRecepcion1, bool v)
         {
-            return RecepcionDatos.AgregarProductoDetalle(detalleRecepcion);
+            if (v)
+            {
+                return RecepcionDatos.AgregarProductoDetalle(detalleRecepcion1);
+            }
+            else
+            {
+                return RecepcionDatos.ActualizarProductoDetalle(detalleRecepcion1);
+            }
         }
 
         public static List<DetalleRecepcionEntidad> DevolverProductosDetalle(int numRecepcion)

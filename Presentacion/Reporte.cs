@@ -17,7 +17,10 @@ namespace Presentacion
     {
         private Button botonSeleccionado;
         ConsultasEntidad consultasEntidad = new ConsultasEntidad();
-        List<ListaConsulta1> listaConsulta1s = new List<ListaConsulta1>(); 
+        List<ListaConsulta1> listaConsulta1s = new List<ListaConsulta1>();
+        List<ConsultaStockProductos> consultaStocks = new List<ConsultaStockProductos>();
+        List<ConsultaTopProductos> consultaTopProductos = new List<ConsultaTopProductos>();
+
         public Reporte()
         {
             InitializeComponent();
@@ -31,30 +34,67 @@ namespace Presentacion
         private void CargarComponnetes()
         {
             AparienciaBoton(button4);
-            ConsultaUltimos7dias();
+            ConsultaPersonalizada(DateTime.Today.AddDays(-7), DateTime.Now);
         }
-
-        private void ConsultaUltimos7dias()
+        private void ConsultaPersonalizada(DateTime inicio, DateTime fin)
         {
-            this.reportViewer1.RefreshReport();
-            //reportViewer1.LocalReport.DataSources.Clear();
-            consultasEntidad.FechaInicio = DateTime.UtcNow.AddDays(-7);
-            consultasEntidad.FechaFin = DateTime.UtcNow;
-            consultasEntidad.NumDias = 7;
-            consultasEntidad = ConsultasNegocio.DevolverConsulta(consultasEntidad);
-            consultasEntidadBindingSource.DataSource = consultasEntidad;
-            consultasEntidad.FechaInicio = DateTime.UtcNow.AddDays(-7);
-            consultasEntidad.FechaFin = DateTime.UtcNow;
-            consultasEntidad.NumDias = 7;
-            listaConsulta1s = ConsultasNegocio.ConsultaMontoFecha(consultasEntidad.FechaInicio, consultasEntidad.FechaFin, consultasEntidad.NumDias);
-            listaConsulta1BindingSource.DataSource = listaConsulta1s;
+            if (inicio <= fin)
+            {
+                LimpiarListas();
+                consultasEntidad.FechaInicio = inicio;
+                consultasEntidad.FechaFin = fin;
+                consultasEntidad.NumDias = (fin - inicio).Days;
 
-            consultaStockProductosBindingSource.DataSource = ConsultasNegocio.ConsultaStockFecha(consultasEntidad.FechaInicio, consultasEntidad.FechaFin);
-            consultaTopProductosBindingSource.DataSource = ConsultasNegocio.ConsultaTopProductos(consultasEntidad.FechaInicio, consultasEntidad.FechaFin);
-            //ReportDataSource rd2 = new ReportDataSource("DataSet2", listaConsulta1s);
-            //reportViewer1.LocalReport.DataSources.Add(rd2);
-            //reportViewer1.LocalReport.ReportPath = @"D:\Programacion en C#\Proyecto\Presentacion\Reporte\Report1.rdlc";
+                consultasEntidad = ConsultasNegocio.DevolverConsulta(consultasEntidad);
+                consultasEntidadBindingSource.DataSource = consultasEntidad;
+
+                listaConsulta1s = ConsultasNegocio.ConsultaMontoFecha(consultasEntidad);
+                listaConsulta1BindingSource.DataSource = listaConsulta1s;
+
+                consultaStocks = ConsultasNegocio.ConsultaStockFecha(consultasEntidad);
+                consultaStockProductosBindingSource.DataSource = consultaStocks;
+
+                consultaTopProductos = ConsultasNegocio.ConsultaTopProductos(consultasEntidad);
+                consultaTopProductosBindingSource.DataSource = consultaTopProductos;
+            }
+            else
+            {
+                MessageBox.Show("Fecha incorrecta primeo 'Fecha menor' luego 'Fecha mayor'");
+            }
+          
         }
+
+        private void LimpiarListas()
+        {
+            listaConsulta1s = new List<ListaConsulta1>();
+            consultaStocks = new List<ConsultaStockProductos>();
+            consultaTopProductos = new List<ConsultaTopProductos>();
+            consultasEntidad = new ConsultasEntidad();
+            this.reportViewer1.RefreshReport();
+
+        }
+
+        //private void ConsultaUltimos7dias()
+        //{
+        //    this.reportViewer1.RefreshReport();
+        //    //reportViewer1.LocalReport.DataSources.Clear();
+        //    consultasEntidad.FechaInicio = ;
+        //    consultasEntidad.FechaFin = ;
+        //    consultasEntidad.NumDias = 7;
+        //    consultasEntidad = ConsultasNegocio.DevolverConsulta(consultasEntidad);
+        //    consultasEntidadBindingSource.DataSource = consultasEntidad;
+        //    consultasEntidad.FechaInicio = DateTime.UtcNow.AddDays(-7);
+        //    consultasEntidad.FechaFin = DateTime.UtcNow;
+        //    consultasEntidad.NumDias = 7;
+        //    listaConsulta1s = ConsultasNegocio.ConsultaMontoFecha(consultasEntidad);
+        //    listaConsulta1BindingSource.DataSource = listaConsulta1s;
+
+        //    consultaStockProductosBindingSource.DataSource = ConsultasNegocio.ConsultaStockFecha(consultasEntidad);
+        //    consultaTopProductosBindingSource.DataSource = ConsultasNegocio.ConsultaTopProductos(consultasEntidad);
+        //    //ReportDataSource rd2 = new ReportDataSource("DataSet2", listaConsulta1s);
+        //    //reportViewer1.LocalReport.DataSources.Add(rd2);
+        //    //reportViewer1.LocalReport.ReportPath = @"D:\Programacion en C#\Proyecto\Presentacion\Reporte\Report1.rdlc";
+        //}
 
         private void AparienciaBoton(object boton)
         {
@@ -93,45 +133,41 @@ namespace Presentacion
         private void button3_Click(object sender, EventArgs e)
         {
             AparienciaBoton(sender);
+            ConsultaPersonalizada(DateTime.Today,DateTime.Now);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             AparienciaBoton(sender);
-            ConsultaUltimos7dias();
+            ConsultaPersonalizada(DateTime.Today.AddDays(-7), DateTime.Now);
         }
 
         private void button_30Dias_Click(object sender, EventArgs e)
         {
             AparienciaBoton(sender);
+            ConsultaPersonalizada(DateTime.Today.AddDays(-30), DateTime.Now);
+
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             AparienciaBoton(sender);
+            ConsultaPersonalizada(new DateTime(DateTime.Today.Year,DateTime.Today.Month,1), DateTime.Now);
+
         }
 
         private void button_Personalisar_Click(object sender, EventArgs e)
         {
-            ConsultaPersonalizada(guna2DateTimePicker_Fecha1.Value,guna2DateTimePicker_Fecha2.Value);
+            DateTime fechaInicio = new DateTime(guna2DateTimePicker_Fecha1.Value.Year,
+                guna2DateTimePicker_Fecha1.Value.Month, guna2DateTimePicker_Fecha1.Value.Day,0,0,0);
+
+            DateTime fechaFin = new DateTime(guna2DateTimePicker_Fecha2.Value.Year,
+            guna2DateTimePicker_Fecha2.Value.Month, guna2DateTimePicker_Fecha2.Value.Day, 
+            DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+
+            ConsultaPersonalizada(fechaInicio,fechaFin);
         }
 
-        private void ConsultaPersonalizada(DateTime inicio, DateTime fin)
-        {
-            this.reportViewer1.RefreshReport();
-            fin = new DateTime(fin.Year,fin.Month,fin.Day,fin.Hour,fin.Minute,59);
-            consultasEntidad.FechaInicio = inicio;
-            consultasEntidad.FechaFin = fin;
-            consultasEntidad.NumDias = (inicio-fin).Days;
 
-            consultasEntidad = ConsultasNegocio.DevolverConsulta(consultasEntidad);
-            consultasEntidadBindingSource.DataSource = consultasEntidad;
-
-            listaConsulta1s = ConsultasNegocio.ConsultaMontoFecha(consultasEntidad.FechaInicio, consultasEntidad.FechaFin, consultasEntidad.NumDias);
-            listaConsulta1BindingSource.DataSource = listaConsulta1s;
-
-            consultaStockProductosBindingSource.DataSource = ConsultasNegocio.ConsultaStockFecha(consultasEntidad.FechaInicio, consultasEntidad.FechaFin);
-            consultaTopProductosBindingSource.DataSource = ConsultasNegocio.ConsultaTopProductos(consultasEntidad.FechaInicio, consultasEntidad.FechaFin);
-        }
     }
 }

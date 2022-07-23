@@ -119,13 +119,17 @@ namespace Datos
                         productoresEntidad.TelefonoAdicional = dr["TEL_PRO_ADI"].ToString();
                         productoresEntidad.Email = dr["EMAIL"].ToString();
                     }
+                    else
+                    {
+                        return null;
+                    }
                 }
 
                 return productoresEntidad;
             }
             catch (Exception)
             {
-                throw;
+                return null;
             }
             finally
             {

@@ -153,6 +153,7 @@
                         <Value>Numero de Ventas</Value>
                         <Style>
                           <FontFamily>roboto</FontFamily>
+                          <Color>#bdc5f2</Color>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -183,7 +184,9 @@
                     <TextRuns>
                       <TextRun>
                         <Value>=Sum(Fields!NumVentas.Value, "DataSet1")</Value>
-                        <Style />
+                        <Style>
+                          <Color>#f2f2f2</Color>
+                        </Style>
                       </TextRun>
                     </TextRuns>
                     <Style>
@@ -207,49 +210,17 @@
                   <PaddingBottom>2pt</PaddingBottom>
                 </Style>
               </Textbox>
-              <Textbox Name="Textbox8">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>=Sum(Fields!NumProductos.Value, "DataSet1")</Value>
-                        <Style>
-                          <Format>0.00%</Format>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style />
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox8</rd:DefaultName>
-                <Top>0.74084cm</Top>
-                <Left>5.64924cm</Left>
-                <Height>0.6cm</Height>
-                <Width>1.20354cm</Width>
-                <ZIndex>3</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.45833cm</Top>
             <Left>0.23812cm</Left>
             <Height>2.05521cm</Height>
-            <Width>7.55037cm</Width>
+            <Width>7.66037cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
-              <BackgroundColor>#a7a0db</BackgroundColor>
+              <BackgroundColor>#415cf2</BackgroundColor>
             </Style>
           </Rectangle>
           <Rectangle Name="Rectangle2">
@@ -277,6 +248,7 @@
                         <Value>Total ingresos</Value>
                         <Style>
                           <FontFamily>roboto</FontFamily>
+                          <Color>#bdc5f2</Color>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -309,6 +281,7 @@
                         <Value>=Sum(Fields!TotalIngresos.Value, "DataSet1")</Value>
                         <Style>
                           <Format>0.00'$';(0.00'$')</Format>
+                          <Color>#f2f2f2</Color>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -334,48 +307,18 @@
                   <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
                 </Style>
               </Textbox>
-              <Textbox Name="Textbox13">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>=Sum(Fields!NumClientes.Value, "DataSet1") + "%"</Value>
-                        <Style />
-                      </TextRun>
-                    </TextRuns>
-                    <Style />
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox8</rd:DefaultName>
-                <Top>0.74084cm</Top>
-                <Left>6.3459cm</Left>
-                <Height>0.6cm</Height>
-                <Width>1.20354cm</Width>
-                <ZIndex>3</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.45833cm</Top>
             <Left>8.07071cm</Left>
             <Height>2.05521cm</Height>
-            <Width>8.56258cm</Width>
+            <Width>8.66845cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
-              <BackgroundColor>#a7a0db</BackgroundColor>
+              <BackgroundColor>#415cf2</BackgroundColor>
             </Style>
           </Rectangle>
           <Rectangle Name="Rectangle3">
@@ -403,6 +346,7 @@
                         <Value>Total beneficios</Value>
                         <Style>
                           <FontFamily>roboto</FontFamily>
+                          <Color>#bdc5f2</Color>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -435,6 +379,7 @@
                         <Value>=Sum(Fields!TotalBeneficio.Value, "DataSet1")</Value>
                         <Style>
                           <Format>0.00'$';(0.00'$')</Format>
+                          <Color>#f2f2f2</Color>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -460,38 +405,6 @@
                   <rd:FormatSymbolCulture>lkt-US</rd:FormatSymbolCulture>
                 </Style>
               </Textbox>
-              <Textbox Name="Textbox16">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>=Sum(Fields!NumVentas.Value, "DataSet1")</Value>
-                        <Style>
-                          <Format>0.00%</Format>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style />
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox8</rd:DefaultName>
-                <Top>0.74084cm</Top>
-                <Left>5.82965cm</Left>
-                <Height>0.6cm</Height>
-                <Width>1.20354cm</Width>
-                <ZIndex>3</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.45833cm</Top>
@@ -503,7 +416,7 @@
               <Border>
                 <Style>None</Style>
               </Border>
-              <BackgroundColor>#a7a0db</BackgroundColor>
+              <BackgroundColor>#415cf2</BackgroundColor>
             </Style>
           </Rectangle>
           <Rectangle Name="Rectangle4">
@@ -534,6 +447,7 @@
                           <FontFamily>roboto</FontFamily>
                           <FontSize>12pt</FontSize>
                           <FontWeight>Bold</FontWeight>
+                          <Color>#f2f2f2</Color>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -564,7 +478,9 @@
                     <TextRuns>
                       <TextRun>
                         <Value>=Sum(Fields!NumClientes.Value, "DataSet1")</Value>
-                        <Style />
+                        <Style>
+                          <Color>#f2f2f2</Color>
+                        </Style>
                       </TextRun>
                     </TextRuns>
                     <Style>
@@ -600,6 +516,7 @@
                           <FontFamily>roboto</FontFamily>
                           <FontSize>12pt</FontSize>
                           <FontWeight>Normal</FontWeight>
+                          <Color>#bdc5f2</Color>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -649,6 +566,7 @@
                           <FontFamily>roboto</FontFamily>
                           <FontSize>12pt</FontSize>
                           <FontWeight>Normal</FontWeight>
+                          <Color>#bdc5f2</Color>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -679,7 +597,9 @@
                     <TextRuns>
                       <TextRun>
                         <Value>=Sum(Fields!NumProductores.Value, "DataSet1")</Value>
-                        <Style />
+                        <Style>
+                          <Color>#f2f2f2</Color>
+                        </Style>
                       </TextRun>
                     </TextRuns>
                     <Style>
@@ -730,6 +650,7 @@
                           <FontFamily>roboto</FontFamily>
                           <FontSize>12pt</FontSize>
                           <FontWeight>Normal</FontWeight>
+                          <Color>#bdc5f2</Color>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -760,7 +681,9 @@
                     <TextRuns>
                       <TextRun>
                         <Value>=Sum(Fields!NumProductos.Value, "DataSet1")</Value>
-                        <Style />
+                        <Style>
+                          <Color>#f2f2f2</Color>
+                        </Style>
                       </TextRun>
                     </TextRuns>
                     <Style>
@@ -795,392 +718,17 @@
               <Border>
                 <Style>None</Style>
               </Border>
-              <BackgroundColor>#a7a0db</BackgroundColor>
-            </Style>
-          </Rectangle>
-          <Rectangle Name="Rectangle7">
-            <ReportItems>
-              <Chart Name="Chart1">
-                <ChartCategoryHierarchy>
-                  <ChartMembers>
-                    <ChartMember>
-                      <Group Name="Chart1_CategoryGroup">
-                        <GroupExpressions>
-                          <GroupExpression>=Fields!Fecha.Value</GroupExpression>
-                        </GroupExpressions>
-                      </Group>
-                      <SortExpressions>
-                        <SortExpression>
-                          <Value>=Fields!Fecha.Value</Value>
-                        </SortExpression>
-                      </SortExpressions>
-                      <Label>=Fields!Fecha.Value</Label>
-                    </ChartMember>
-                  </ChartMembers>
-                </ChartCategoryHierarchy>
-                <ChartSeriesHierarchy>
-                  <ChartMembers>
-                    <ChartMember>
-                      <Label>Monto</Label>
-                    </ChartMember>
-                  </ChartMembers>
-                </ChartSeriesHierarchy>
-                <ChartData>
-                  <ChartSeriesCollection>
-                    <ChartSeries Name="Monto">
-                      <ChartDataPoints>
-                        <ChartDataPoint>
-                          <ChartDataPointValues>
-                            <Y>=Sum(Fields!Monto.Value)</Y>
-                          </ChartDataPointValues>
-                          <ChartDataLabel>
-                            <Style />
-                          </ChartDataLabel>
-                          <Style />
-                          <ChartMarker>
-                            <Style />
-                          </ChartMarker>
-                          <DataElementOutput>Output</DataElementOutput>
-                        </ChartDataPoint>
-                      </ChartDataPoints>
-                      <Type>Area</Type>
-                      <Style />
-                      <ChartEmptyPoints>
-                        <Style />
-                        <ChartMarker>
-                          <Style />
-                        </ChartMarker>
-                        <ChartDataLabel>
-                          <Style />
-                        </ChartDataLabel>
-                      </ChartEmptyPoints>
-                      <ValueAxisName>Primary</ValueAxisName>
-                      <CategoryAxisName>Primary</CategoryAxisName>
-                      <ChartSmartLabel>
-                        <CalloutLineColor>Black</CalloutLineColor>
-                        <MinMovingDistance>0pt</MinMovingDistance>
-                      </ChartSmartLabel>
-                    </ChartSeries>
-                  </ChartSeriesCollection>
-                </ChartData>
-                <ChartAreas>
-                  <ChartArea Name="Default">
-                    <ChartCategoryAxes>
-                      <ChartAxis Name="Primary">
-                        <Style>
-                          <Border>
-                            <Color>Gainsboro</Color>
-                            <Style>None</Style>
-                          </Border>
-                          <FontSize>8pt</FontSize>
-                          <Color>#5c5c5c</Color>
-                        </Style>
-                        <ChartAxisTitle>
-                          <Caption />
-                          <Style>
-                            <FontSize>9pt</FontSize>
-                            <Color>#5c5c5c</Color>
-                          </Style>
-                        </ChartAxisTitle>
-                        <ChartMajorGridLines>
-                          <Enabled>False</Enabled>
-                          <Style>
-                            <Border>
-                              <Color>Gainsboro</Color>
-                            </Border>
-                          </Style>
-                        </ChartMajorGridLines>
-                        <ChartMinorGridLines>
-                          <Style>
-                            <Border>
-                              <Color>Gainsboro</Color>
-                              <Style>Dotted</Style>
-                            </Border>
-                          </Style>
-                        </ChartMinorGridLines>
-                        <ChartMajorTickMarks>
-                          <Style>
-                            <Border>
-                              <Color>Gainsboro</Color>
-                              <Style>None</Style>
-                            </Border>
-                          </Style>
-                        </ChartMajorTickMarks>
-                        <ChartMinorTickMarks>
-                          <Style>
-                            <Border>
-                              <Color>Gainsboro</Color>
-                            </Border>
-                          </Style>
-                          <Length>0.5</Length>
-                        </ChartMinorTickMarks>
-                        <CrossAt>NaN</CrossAt>
-                        <Minimum>NaN</Minimum>
-                        <Maximum>NaN</Maximum>
-                        <ChartAxisScaleBreak>
-                          <Style />
-                        </ChartAxisScaleBreak>
-                      </ChartAxis>
-                      <ChartAxis Name="Secondary">
-                        <Style>
-                          <Border>
-                            <Color>Gainsboro</Color>
-                            <Style>None</Style>
-                          </Border>
-                          <FontSize>8pt</FontSize>
-                          <Color>#5c5c5c</Color>
-                        </Style>
-                        <ChartAxisTitle>
-                          <Caption />
-                          <Style>
-                            <FontSize>9pt</FontSize>
-                            <Color>#5c5c5c</Color>
-                          </Style>
-                        </ChartAxisTitle>
-                        <ChartMajorGridLines>
-                          <Enabled>False</Enabled>
-                          <Style>
-                            <Border>
-                              <Color>Gainsboro</Color>
-                            </Border>
-                          </Style>
-                        </ChartMajorGridLines>
-                        <ChartMinorGridLines>
-                          <Style>
-                            <Border>
-                              <Color>Gainsboro</Color>
-                              <Style>Dotted</Style>
-                            </Border>
-                          </Style>
-                        </ChartMinorGridLines>
-                        <ChartMajorTickMarks>
-                          <Style>
-                            <Border>
-                              <Color>Gainsboro</Color>
-                              <Style>None</Style>
-                            </Border>
-                          </Style>
-                        </ChartMajorTickMarks>
-                        <ChartMinorTickMarks>
-                          <Style>
-                            <Border>
-                              <Color>Gainsboro</Color>
-                            </Border>
-                          </Style>
-                          <Length>0.5</Length>
-                        </ChartMinorTickMarks>
-                        <CrossAt>NaN</CrossAt>
-                        <Location>Opposite</Location>
-                        <Minimum>NaN</Minimum>
-                        <Maximum>NaN</Maximum>
-                        <ChartAxisScaleBreak>
-                          <Style />
-                        </ChartAxisScaleBreak>
-                      </ChartAxis>
-                    </ChartCategoryAxes>
-                    <ChartValueAxes>
-                      <ChartAxis Name="Primary">
-                        <Style>
-                          <Border>
-                            <Color>Gainsboro</Color>
-                            <Style>None</Style>
-                          </Border>
-                          <FontSize>8pt</FontSize>
-                          <Format>0.0'$';(0.0'$')</Format>
-                          <Color>#5c5c5c</Color>
-                          <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
-                        </Style>
-                        <ChartAxisTitle>
-                          <Caption />
-                          <Style>
-                            <FontSize>9pt</FontSize>
-                            <Color>#5c5c5c</Color>
-                          </Style>
-                        </ChartAxisTitle>
-                        <ChartMajorGridLines>
-                          <Style>
-                            <Border>
-                              <Color>Gainsboro</Color>
-                            </Border>
-                          </Style>
-                        </ChartMajorGridLines>
-                        <ChartMinorGridLines>
-                          <Style>
-                            <Border>
-                              <Color>Gainsboro</Color>
-                              <Style>Dotted</Style>
-                            </Border>
-                          </Style>
-                        </ChartMinorGridLines>
-                        <ChartMajorTickMarks>
-                          <Style>
-                            <Border>
-                              <Color>Gainsboro</Color>
-                              <Style>None</Style>
-                            </Border>
-                          </Style>
-                        </ChartMajorTickMarks>
-                        <ChartMinorTickMarks>
-                          <Style>
-                            <Border>
-                              <Color>Gainsboro</Color>
-                            </Border>
-                          </Style>
-                          <Length>0.5</Length>
-                        </ChartMinorTickMarks>
-                        <CrossAt>NaN</CrossAt>
-                        <Minimum>NaN</Minimum>
-                        <Maximum>NaN</Maximum>
-                        <ChartAxisScaleBreak>
-                          <Style />
-                        </ChartAxisScaleBreak>
-                      </ChartAxis>
-                      <ChartAxis Name="Secondary">
-                        <Style>
-                          <Border>
-                            <Color>Gainsboro</Color>
-                            <Style>None</Style>
-                          </Border>
-                          <FontSize>8pt</FontSize>
-                          <Color>#5c5c5c</Color>
-                        </Style>
-                        <ChartAxisTitle>
-                          <Caption />
-                          <Style>
-                            <FontSize>9pt</FontSize>
-                            <Color>#5c5c5c</Color>
-                          </Style>
-                        </ChartAxisTitle>
-                        <ChartMajorGridLines>
-                          <Style>
-                            <Border>
-                              <Color>Gainsboro</Color>
-                            </Border>
-                          </Style>
-                        </ChartMajorGridLines>
-                        <ChartMinorGridLines>
-                          <Style>
-                            <Border>
-                              <Color>Gainsboro</Color>
-                              <Style>Dotted</Style>
-                            </Border>
-                          </Style>
-                        </ChartMinorGridLines>
-                        <ChartMajorTickMarks>
-                          <Style>
-                            <Border>
-                              <Color>Gainsboro</Color>
-                              <Style>None</Style>
-                            </Border>
-                          </Style>
-                        </ChartMajorTickMarks>
-                        <ChartMinorTickMarks>
-                          <Style>
-                            <Border>
-                              <Color>Gainsboro</Color>
-                            </Border>
-                          </Style>
-                          <Length>0.5</Length>
-                        </ChartMinorTickMarks>
-                        <CrossAt>NaN</CrossAt>
-                        <Location>Opposite</Location>
-                        <Minimum>NaN</Minimum>
-                        <Maximum>NaN</Maximum>
-                        <ChartAxisScaleBreak>
-                          <Style />
-                        </ChartAxisScaleBreak>
-                      </ChartAxis>
-                    </ChartValueAxes>
-                    <Style>
-                      <BackgroundColor>#00ffffff</BackgroundColor>
-                      <BackgroundGradientType>None</BackgroundGradientType>
-                    </Style>
-                  </ChartArea>
-                </ChartAreas>
-                <ChartLegends>
-                  <ChartLegend Name="Default">
-                    <Style>
-                      <BackgroundGradientType>None</BackgroundGradientType>
-                      <FontSize>8pt</FontSize>
-                    </Style>
-                    <Position>TopLeft</Position>
-                    <ChartLegendTitle>
-                      <Caption />
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                        <TextAlign>Center</TextAlign>
-                      </Style>
-                    </ChartLegendTitle>
-                    <HeaderSeparatorColor>Black</HeaderSeparatorColor>
-                    <ColumnSeparatorColor>Black</ColumnSeparatorColor>
-                  </ChartLegend>
-                </ChartLegends>
-                <ChartTitles>
-                  <ChartTitle Name="Default">
-                    <Caption>Ingresos en bruto</Caption>
-                    <Style>
-                      <BackgroundGradientType>None</BackgroundGradientType>
-                      <FontSize>12pt</FontSize>
-                      <FontWeight>Normal</FontWeight>
-                      <TextAlign>Left</TextAlign>
-                      <VerticalAlign>Top</VerticalAlign>
-                    </Style>
-                    <Position>TopLeft</Position>
-                  </ChartTitle>
-                </ChartTitles>
-                <Palette>PacificSemiTransparent</Palette>
-                <ChartBorderSkin>
-                  <Style>
-                    <BackgroundColor>Gray</BackgroundColor>
-                    <BackgroundGradientType>None</BackgroundGradientType>
-                    <Color>White</Color>
-                  </Style>
-                </ChartBorderSkin>
-                <ChartNoDataMessage Name="NoDataMessage">
-                  <Caption>Sin datos disponibles</Caption>
-                  <Style>
-                    <BackgroundGradientType>None</BackgroundGradientType>
-                    <FontWeight>Bold</FontWeight>
-                    <TextAlign>General</TextAlign>
-                    <VerticalAlign>Top</VerticalAlign>
-                  </Style>
-                </ChartNoDataMessage>
-                <DataSetName>DataSet2</DataSetName>
-                <Left>0.18714cm</Left>
-                <Height>6.31686cm</Height>
-                <Width>16.10274cm</Width>
-                <Style>
-                  <Border>
-                    <Color>LightGrey</Color>
-                    <Style>None</Style>
-                  </Border>
-                  <BackgroundColor>#a7a0db</BackgroundColor>
-                  <BackgroundGradientType>None</BackgroundGradientType>
-                </Style>
-              </Chart>
-            </ReportItems>
-            <KeepTogether>true</KeepTogether>
-            <Top>2.97794cm</Top>
-            <Left>0.34341cm</Left>
-            <Height>6.36977cm</Height>
-            <Width>16.28988cm</Width>
-            <ZIndex>4</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <BackgroundColor>#a7a0db</BackgroundColor>
+              <BackgroundColor>#415cf2</BackgroundColor>
             </Style>
           </Rectangle>
           <Tablix Name="Tablix2">
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>5.16938cm</Width>
+                  <Width>5.33275cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.16938cm</Width>
+                  <Width>5.33275cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -1201,6 +749,8 @@
                                     <FontFamily>roboto</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1213,8 +763,20 @@
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
-                              <Style>Solid</Style>
+                              <Style>None</Style>
                             </Border>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1237,6 +799,8 @@
                                     <FontFamily>roboto</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1249,7 +813,7 @@
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
-                              <Style>Solid</Style>
+                              <Style>None</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1274,7 +838,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Nombre.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <Color>#bdc5f2</Color>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -1284,8 +850,20 @@
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
-                              <Style>Solid</Style>
+                              <Style>None</Style>
                             </Border>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1304,7 +882,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Stock.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <Color>#bdc5f2</Color>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -1316,7 +896,7 @@
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
-                              <Style>Solid</Style>
+                              <Style>None</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1348,15 +928,34 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet3</DataSetName>
             <Top>9.68121cm</Top>
-            <Left>6.29453cm</Left>
+            <Left>6.09903cm</Left>
             <Height>1.2cm</Height>
-            <Width>10.33876cm</Width>
-            <ZIndex>5</ZIndex>
+            <Width>10.6655cm</Width>
+            <ZIndex>4</ZIndex>
             <Style>
               <Border>
+                <Color>#415cf2</Color>
                 <Style>None</Style>
+                <Width>0.5pt</Width>
               </Border>
-              <BackgroundColor>#a7a0db</BackgroundColor>
+              <TopBorder>
+                <Style>None</Style>
+                <Width>0.5pt</Width>
+              </TopBorder>
+              <BottomBorder>
+                <Style>None</Style>
+                <Width>0.5pt</Width>
+              </BottomBorder>
+              <LeftBorder>
+                <Style>None</Style>
+                <Width>0.5pt</Width>
+              </LeftBorder>
+              <RightBorder>
+                <Style>None</Style>
+                <Width>0.5pt</Width>
+              </RightBorder>
+              <BackgroundColor>#415cf2</BackgroundColor>
+              <Color>#415cf2</Color>
             </Style>
           </Tablix>
           <Chart Name="Chart2">
@@ -1393,11 +992,24 @@
                         <Y>=Sum(Fields!Cantidad.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
-                        <Style />
+                        <Style>
+                          <FontStyle>Italic</FontStyle>
+                          <FontFamily>Roboto</FontFamily>
+                          <FontWeight>Medium</FontWeight>
+                          <Color>#bdc5f2</Color>
+                        </Style>
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
-                      <Style />
+                      <Style>
+                        <Border>
+                          <Color>#415cf2</Color>
+                          <Width>8pt</Width>
+                        </Border>
+                        <BackgroundGradientType>DiagonalLeft</BackgroundGradientType>
+                        <BackgroundGradientEndColor>#d4e8ee</BackgroundGradientEndColor>
+                        <BackgroundHatchType>None</BackgroundHatchType>
+                      </Style>
                       <ChartMarker>
                         <Style />
                       </ChartMarker>
@@ -1405,6 +1017,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Shape</Type>
+                  <Subtype>Doughnut</Subtype>
                   <Style />
                   <ChartEmptyPoints>
                     <Style />
@@ -1415,6 +1028,12 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
+                  <CustomProperties>
+                    <CustomProperty>
+                      <Name>CollectedColor</Name>
+                      <Value>#5f2740f2</Value>
+                    </CustomProperty>
+                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -1651,6 +1270,10 @@
                   </ChartAxis>
                 </ChartValueAxes>
                 <Style>
+                  <Border>
+                    <Color>#415cf2</Color>
+                    <Width>5pt</Width>
+                  </Border>
                   <BackgroundColor>#00ffffff</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
                 </Style>
@@ -1661,6 +1284,7 @@
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>8pt</FontSize>
+                  <Color>#bdc5f2</Color>
                 </Style>
                 <Position>BottomCenter</Position>
                 <DockOutsideChartArea>true</DockOutsideChartArea>
@@ -1686,6 +1310,7 @@
                   <FontWeight>Bold</FontWeight>
                   <TextAlign>Left</TextAlign>
                   <VerticalAlign>Top</VerticalAlign>
+                  <Color>White</Color>
                 </Style>
               </ChartTitle>
             </ChartTitles>
@@ -1707,24 +1332,407 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSet4</DataSetName>
-            <Top>2.97794cm</Top>
+            <Top>2.68993cm</Top>
             <Left>16.89555cm</Left>
-            <Height>12.78407cm</Height>
+            <Height>13.07208cm</Height>
             <Width>8.18445cm</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Color>LightGrey</Color>
+                <Style>None</Style>
+              </Border>
+              <BackgroundColor>#415cf2</BackgroundColor>
+              <BackgroundGradientType>None</BackgroundGradientType>
+            </Style>
+          </Chart>
+          <Chart Name="Chart1">
+            <ChartCategoryHierarchy>
+              <ChartMembers>
+                <ChartMember>
+                  <Group Name="Chart1_CategoryGroup">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!Fecha.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!Fecha.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <Label>=Fields!Fecha.Value</Label>
+                </ChartMember>
+              </ChartMembers>
+            </ChartCategoryHierarchy>
+            <ChartSeriesHierarchy>
+              <ChartMembers>
+                <ChartMember>
+                  <Label>Monto</Label>
+                </ChartMember>
+              </ChartMembers>
+            </ChartSeriesHierarchy>
+            <ChartData>
+              <ChartSeriesCollection>
+                <ChartSeries Name="Monto">
+                  <ChartDataPoints>
+                    <ChartDataPoint>
+                      <ChartDataPointValues>
+                        <Y>=Sum(Fields!Monto.Value)</Y>
+                      </ChartDataPointValues>
+                      <ChartDataLabel>
+                        <Style />
+                      </ChartDataLabel>
+                      <Style>
+                        <Border>
+                          <Width>3pt</Width>
+                        </Border>
+                        <Color>#2f18db</Color>
+                        <BackgroundGradientType>LeftRight</BackgroundGradientType>
+                        <BackgroundGradientEndColor>#721bf9</BackgroundGradientEndColor>
+                      </Style>
+                      <ChartMarker>
+                        <Size>10pt</Size>
+                        <Style>
+                          <Border>
+                            <Color>#721bf9</Color>
+                          </Border>
+                          <Color>#721bf9</Color>
+                        </Style>
+                      </ChartMarker>
+                      <DataElementOutput>Output</DataElementOutput>
+                    </ChartDataPoint>
+                  </ChartDataPoints>
+                  <Type>Area</Type>
+                  <Style />
+                  <ChartEmptyPoints>
+                    <Style />
+                    <ChartMarker>
+                      <Style />
+                    </ChartMarker>
+                    <ChartDataLabel>
+                      <Style />
+                    </ChartDataLabel>
+                  </ChartEmptyPoints>
+                  <ValueAxisName>Primary</ValueAxisName>
+                  <CategoryAxisName>Primary</CategoryAxisName>
+                  <ChartSmartLabel>
+                    <CalloutLineColor>Black</CalloutLineColor>
+                    <MinMovingDistance>0pt</MinMovingDistance>
+                  </ChartSmartLabel>
+                </ChartSeries>
+              </ChartSeriesCollection>
+            </ChartData>
+            <ChartAreas>
+              <ChartArea Name="Default">
+                <ChartCategoryAxes>
+                  <ChartAxis Name="Primary">
+                    <Style>
+                      <Border>
+                        <Color>Gainsboro</Color>
+                        <Style>None</Style>
+                      </Border>
+                      <FontSize>8pt</FontSize>
+                      <Color>LightGrey</Color>
+                    </Style>
+                    <ChartAxisTitle>
+                      <Caption />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <Color>#5c5c5c</Color>
+                      </Style>
+                    </ChartAxisTitle>
+                    <ChartMajorGridLines>
+                      <Enabled>False</Enabled>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                    </ChartMajorGridLines>
+                    <ChartMinorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>Dotted</Style>
+                        </Border>
+                      </Style>
+                    </ChartMinorGridLines>
+                    <ChartMajorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </ChartMajorTickMarks>
+                    <ChartMinorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                      <Length>0.5</Length>
+                    </ChartMinorTickMarks>
+                    <CrossAt>NaN</CrossAt>
+                    <Minimum>NaN</Minimum>
+                    <Maximum>NaN</Maximum>
+                    <LabelsAutoFitDisabled>true</LabelsAutoFitDisabled>
+                    <ChartAxisScaleBreak>
+                      <Style />
+                    </ChartAxisScaleBreak>
+                  </ChartAxis>
+                  <ChartAxis Name="Secondary">
+                    <Style>
+                      <Border>
+                        <Color>Gainsboro</Color>
+                        <Style>None</Style>
+                      </Border>
+                      <FontSize>8pt</FontSize>
+                      <Color>#5c5c5c</Color>
+                    </Style>
+                    <ChartAxisTitle>
+                      <Caption />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <Color>#5c5c5c</Color>
+                      </Style>
+                    </ChartAxisTitle>
+                    <ChartMajorGridLines>
+                      <Enabled>False</Enabled>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                    </ChartMajorGridLines>
+                    <ChartMinorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>Dotted</Style>
+                        </Border>
+                      </Style>
+                    </ChartMinorGridLines>
+                    <ChartMajorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </ChartMajorTickMarks>
+                    <ChartMinorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                      <Length>0.5</Length>
+                    </ChartMinorTickMarks>
+                    <CrossAt>NaN</CrossAt>
+                    <Location>Opposite</Location>
+                    <Minimum>NaN</Minimum>
+                    <Maximum>NaN</Maximum>
+                    <ChartAxisScaleBreak>
+                      <Style />
+                    </ChartAxisScaleBreak>
+                  </ChartAxis>
+                </ChartCategoryAxes>
+                <ChartValueAxes>
+                  <ChartAxis Name="Primary">
+                    <Style>
+                      <Border>
+                        <Color>Gainsboro</Color>
+                        <Style>None</Style>
+                      </Border>
+                      <FontSize>8pt</FontSize>
+                      <Format>0.0'$';(0.0'$')</Format>
+                      <Color>LightGrey</Color>
+                      <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
+                    </Style>
+                    <ChartAxisTitle>
+                      <Caption />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <Color>#5c5c5c</Color>
+                      </Style>
+                    </ChartAxisTitle>
+                    <ChartMajorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>#bdc5f2</Color>
+                          <Style>Solid</Style>
+                          <Width>0.38pt</Width>
+                        </Border>
+                      </Style>
+                    </ChartMajorGridLines>
+                    <ChartMinorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>Dotted</Style>
+                        </Border>
+                      </Style>
+                    </ChartMinorGridLines>
+                    <ChartMajorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </ChartMajorTickMarks>
+                    <ChartMinorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                      <Length>0.5</Length>
+                    </ChartMinorTickMarks>
+                    <CrossAt>NaN</CrossAt>
+                    <Minimum>NaN</Minimum>
+                    <Maximum>NaN</Maximum>
+                    <LabelsAutoFitDisabled>true</LabelsAutoFitDisabled>
+                    <ChartAxisScaleBreak>
+                      <Style />
+                    </ChartAxisScaleBreak>
+                  </ChartAxis>
+                  <ChartAxis Name="Secondary">
+                    <Style>
+                      <Border>
+                        <Color>Gainsboro</Color>
+                        <Style>None</Style>
+                      </Border>
+                      <FontSize>8pt</FontSize>
+                      <Color>#5c5c5c</Color>
+                    </Style>
+                    <ChartAxisTitle>
+                      <Caption />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <Color>#5c5c5c</Color>
+                      </Style>
+                    </ChartAxisTitle>
+                    <ChartMajorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                    </ChartMajorGridLines>
+                    <ChartMinorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>Dotted</Style>
+                        </Border>
+                      </Style>
+                    </ChartMinorGridLines>
+                    <ChartMajorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </ChartMajorTickMarks>
+                    <ChartMinorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                      <Length>0.5</Length>
+                    </ChartMinorTickMarks>
+                    <CrossAt>NaN</CrossAt>
+                    <Location>Opposite</Location>
+                    <Minimum>NaN</Minimum>
+                    <Maximum>NaN</Maximum>
+                    <ChartAxisScaleBreak>
+                      <Style />
+                    </ChartAxisScaleBreak>
+                  </ChartAxis>
+                </ChartValueAxes>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <BackgroundColor>#00ffffff</BackgroundColor>
+                  <BackgroundGradientType>None</BackgroundGradientType>
+                </Style>
+              </ChartArea>
+            </ChartAreas>
+            <ChartLegends>
+              <ChartLegend Name="Default">
+                <Style>
+                  <BackgroundGradientType>None</BackgroundGradientType>
+                  <FontSize>8pt</FontSize>
+                  <Color>#bdc5f2</Color>
+                </Style>
+                <Position>TopLeft</Position>
+                <ChartLegendTitle>
+                  <Caption />
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </ChartLegendTitle>
+                <HeaderSeparatorColor>Black</HeaderSeparatorColor>
+                <ColumnSeparatorColor>Black</ColumnSeparatorColor>
+              </ChartLegend>
+            </ChartLegends>
+            <ChartTitles>
+              <ChartTitle Name="Default">
+                <Caption>Ingresos en bruto</Caption>
+                <Style>
+                  <BackgroundGradientType>None</BackgroundGradientType>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextAlign>Left</TextAlign>
+                  <VerticalAlign>Top</VerticalAlign>
+                  <Color>White</Color>
+                </Style>
+                <Position>TopLeft</Position>
+              </ChartTitle>
+            </ChartTitles>
+            <Palette>PacificSemiTransparent</Palette>
+            <ChartBorderSkin>
+              <Style>
+                <BackgroundColor>Gray</BackgroundColor>
+                <BackgroundGradientType>None</BackgroundGradientType>
+                <Color>White</Color>
+              </Style>
+            </ChartBorderSkin>
+            <ChartNoDataMessage Name="NoDataMessage">
+              <Caption>Sin datos disponibles</Caption>
+              <Style>
+                <BackgroundGradientType>None</BackgroundGradientType>
+                <FontWeight>Bold</FontWeight>
+                <TextAlign>General</TextAlign>
+                <VerticalAlign>Top</VerticalAlign>
+              </Style>
+            </ChartNoDataMessage>
+            <DataSetName>DataSet2</DataSetName>
+            <Top>2.68993cm</Top>
+            <Left>0.23812cm</Left>
+            <Height>6.81489cm</Height>
+            <Width>16.51632cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
                 <Style>None</Style>
               </Border>
-              <BackgroundColor>#a7a0db</BackgroundColor>
+              <BackgroundColor>#415cf2</BackgroundColor>
               <BackgroundGradientType>None</BackgroundGradientType>
             </Style>
           </Chart>
         </ReportItems>
         <Height>16.21708cm</Height>
         <Style>
-          <BackgroundColor>#bdc5f2</BackgroundColor>
+          <BackgroundColor>#2745f2</BackgroundColor>
         </Style>
       </Body>
       <Width>25.30328cm</Width>
@@ -1746,6 +1754,7 @@
                         <FontFamily>roboto</FontFamily>
                         <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
+                        <Color>#f2f2f2</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -1792,6 +1801,7 @@
                       <Style>
                         <FontFamily>roboto</FontFamily>
                         <FontSize>8pt</FontSize>
+                        <Color>#f2f2f2</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -1825,6 +1835,7 @@
                       <Style>
                         <FontSize>11pt</FontSize>
                         <Format>D</Format>
+                        <Color>#f2f2f2</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -1860,6 +1871,7 @@
                       <Style>
                         <FontSize>11pt</FontSize>
                         <FontWeight>Bold</FontWeight>
+                        <Color>#f2f2f2</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -1889,7 +1901,7 @@
             <Border>
               <Style>None</Style>
             </Border>
-            <BackgroundColor>#bdc5f2</BackgroundColor>
+            <BackgroundColor>#2745f2</BackgroundColor>
           </Style>
         </PageHeader>
         <PageFooter>
@@ -1905,14 +1917,16 @@
                   <TextRuns>
                     <TextRun>
                       <Value>Guanoluisa Kevin</Value>
-                      <Style />
+                      <Style>
+                        <Color>#f2f2f2</Color>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox4</rd:DefaultName>
-              <Top>0.63848cm</Top>
+              <Top>0.61202cm</Top>
               <Left>2.41723cm</Left>
               <Height>0.6cm</Height>
               <Width>3.05222cm</Width>
@@ -1948,14 +1962,16 @@
                   <TextRuns>
                     <TextRun>
                       <Value>Email: kguanoluisa8614@uta.edu.ec</Value>
-                      <Style />
+                      <Style>
+                        <Color>#f2f2f2</Color>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox5</rd:DefaultName>
-              <Top>0.17639cm</Top>
+              <Top>0.14993cm</Top>
               <Left>15.13099cm</Left>
               <Height>0.6cm</Height>
               <Width>5.83375cm</Width>
@@ -1980,6 +1996,7 @@
                       <Value>=First(Fields!FechaFin.Value, "DataSet1")</Value>
                       <Style>
                         <Format>D</Format>
+                        <Color>#f2f2f2</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -2007,7 +2024,7 @@
             <Border>
               <Style>None</Style>
             </Border>
-            <BackgroundColor>#6b7ff2</BackgroundColor>
+            <BackgroundColor>#415cf2</BackgroundColor>
           </Style>
         </PageFooter>
         <PageHeight>29.7cm</PageHeight>
@@ -2018,7 +2035,7 @@
         <BottomMargin>2cm</BottomMargin>
         <ColumnSpacing>0.13cm</ColumnSpacing>
         <Style>
-          <BackgroundColor>#a7a0db</BackgroundColor>
+          <BackgroundColor>#2745f2</BackgroundColor>
         </Style>
       </Page>
     </ReportSection>

@@ -39,8 +39,6 @@ namespace Presentacion
             dataGridView_ProductosDetalle.DataSource = listaDetalleVentas;
             dataGridView_ProductosDetalle.Columns["NumVenta"].Visible = false;
             dataGridView_ProductosDetalle.Columns["CodProducto"].Visible = false;
-
-
         }
 
         private void CargarProductos()
@@ -144,7 +142,7 @@ namespace Presentacion
                 guna2TextBox_Nombre.Text = clienteEntidad.Nombre;
                 guna2TextBox_Celular.Text = clienteEntidad.Celular;
                 guna2TextBox_Email.Text = clienteEntidad.Email;
-                guna2TextBox_CedulaCliemte.Text = clienteEntidad.Celular;
+                guna2TextBox_CedulaCliemte.Text = clienteEntidad.Cedula;
                 ComenzarVenta();
             }
         }

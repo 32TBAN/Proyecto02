@@ -23,14 +23,43 @@ namespace Datos
             return cmd;
         }
 
-        public static bool AgregarProductoDetalle(List<DetalleRecepcionEntidad> detalleRecepcion)
+        public static RecepcionEntidad ActualizarRecepcion(RecepcionEntidad recepcionEntidad)
         {
             SqlConnection connection = new SqlConnection();
             try
             {
-                bool resultado = false;
-                foreach (var item in detalleRecepcion)
-                {
+                connection = ConexionSql();
+                SqlCommand cmd = ComandoSql(connection);
+                connection.Open();
+                cmd.CommandText = @"UPDATE [dbo].[RECEPCION_PRO]
+                                   SET [ID_USU_REC] = @ID_USU_REC
+                                      ,[ID_PRO_REC] = @ID_PRO_REC
+                                      ,[TOTAL] = @TOTAL
+                                      ,[FEC_REC] = @FEC_REC
+                                 WHERE NUM_REC = @NUM_REC;";
+                cmd.Parameters.AddWithValue("@NUM_REC", recepcionEntidad.NumRec);
+                cmd.Parameters.AddWithValue("@ID_USU_REC", recepcionEntidad.IdUsuario);
+                cmd.Parameters.AddWithValue("@ID_PRO_REC", recepcionEntidad.IdProductor);
+                cmd.Parameters.AddWithValue("@TOTAL", recepcionEntidad.Total);
+                cmd.Parameters.AddWithValue("@FEC_REC", recepcionEntidad.FechaRecepcion);
+                cmd.ExecuteNonQuery();
+                return recepcionEntidad;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public static DetalleRecepcionEntidad AgregarProductoDetalle(DetalleRecepcionEntidad detalleRecepcion)
+        {
+            SqlConnection connection = new SqlConnection();
+            try
+            {
                     connection = ConexionSql();
                     SqlCommand cmd = ComandoSql(connection);
                     connection.Open();
@@ -56,24 +85,54 @@ namespace Datos
                     
                     SELECT SCOPE_IDENTITY();";
 
-                    cmd.Parameters.AddWithValue("@NUM_REC_REC", item.NumRecepcion);
-                    cmd.Parameters.AddWithValue("@COD_PRO_REC", item.CodProducto);
-                    cmd.Parameters.AddWithValue("@CANTIDAD", item.Cantidad);
-                    cmd.Parameters.AddWithValue("@SUBTOTAL", item.Subtotal);
-                    cmd.Parameters.AddWithValue("@NUM_BOD_PER", item.NumBodega);
+                    cmd.Parameters.AddWithValue("@NUM_REC_REC", detalleRecepcion.NumRecepcion);
+                    cmd.Parameters.AddWithValue("@COD_PRO_REC", detalleRecepcion.CodProducto);
+                    cmd.Parameters.AddWithValue("@CANTIDAD", detalleRecepcion.Cantidad);
+                    cmd.Parameters.AddWithValue("@SUBTOTAL", detalleRecepcion.Subtotal);
+                    cmd.Parameters.AddWithValue("@NUM_BOD_PER", detalleRecepcion.NumBodega);
 
-                    if (cmd.ExecuteNonQuery() != 0)
-                    {
-                        resultado = true;
-                    }
-                    else
-                    {
-                        resultado = false;
-                    }
-                    connection.Close();
+
+                if (cmd.ExecuteNonQuery() != 0)
+                {
+                    return detalleRecepcion;
                 }
+                else
+                {
+                    return null;
+                }
+                
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
 
-                return resultado;
+        public static DetalleRecepcionEntidad ActualizarProductoDetalle(DetalleRecepcionEntidad detalleRecepcion1)
+        {
+            SqlConnection connection = new SqlConnection();
+            try
+            {
+                connection = ConexionSql();
+                SqlCommand cmd = ComandoSql(connection);
+                connection.Open();
+                cmd.CommandText = @"UPDATE [dbo].[DETALLE_RECEPCION]
+                               SET [CANTIDAD] = @CANTIDAD
+                                  ,[SUBTOTAL] = @SUBTOTAL
+                                  ,[NUM_BOD_PER] = @NUM_BOD_REC
+                             WHERE [NUM_REC_REC] = @NUM_REC_REC AND [COD_PRO_REC] = @COD_PRO_REC;";
+                cmd.Parameters.AddWithValue("@CANTIDAD", detalleRecepcion1.Cantidad);
+                cmd.Parameters.AddWithValue("@SUBTOTAL", detalleRecepcion1.Subtotal);
+                cmd.Parameters.AddWithValue("@NUM_BOD_REC", detalleRecepcion1.NumBodega);
+                cmd.Parameters.AddWithValue("@NUM_REC_REC", detalleRecepcion1.NumRecepcion);
+                cmd.Parameters.AddWithValue("@COD_PRO_REC", detalleRecepcion1.CodProducto);
+
+                cmd.ExecuteNonQuery();
+                return detalleRecepcion1;
             }
             catch (Exception)
             {
@@ -87,7 +146,7 @@ namespace Datos
 
         public static List<DetalleRecepcionEntidad> DevolverProductosDetalle(int numRecepcion)
         {
-            SqlConnection connection = new SqlConnection();
+            SqlConnection connection;
             try
             {
                 connection = ConexionSql();

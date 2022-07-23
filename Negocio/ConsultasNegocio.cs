@@ -14,19 +14,19 @@ namespace Negocio
             return ConsultaDatos.DevolverConsulta(consultasEntidad);
         }
 
-        public static List<ListaConsulta1> ConsultaMontoFecha(DateTime fechaInicio, DateTime fechaFin, int numDias)
+        public static List<ListaConsulta1> ConsultaMontoFecha(ConsultasEntidad consultasEntidad)
         {
-            return ConsultaDatos.ConsultaMontoFecha(fechaInicio, fechaFin,numDias);
+            return ConsultaDatos.ConsultaMontoFecha(consultasEntidad);
         }
 
-        public static List<ConsultaStockProductos> ConsultaStockFecha(DateTime fechaInicio, DateTime fechaFin)
+        public static List<ConsultaStockProductos> ConsultaStockFecha(ConsultasEntidad consultasEntidad)
         {
-            return ConsultaDatos.ConsultaStockFecha(fechaInicio,fechaFin);
+            return ConsultaDatos.ConsultaStockFecha(consultasEntidad);
         }
 
-        public static List<ConsultaTopProductos> ConsultaTopProductos(DateTime fechaInicio, DateTime fechaFin)
+        public static List<ConsultaTopProductos> ConsultaTopProductos(ConsultasEntidad consultasEntidad)
         {
-            return ConsultaDatos.ConsultaTopProductos(fechaInicio, fechaFin);
+            return ConsultaDatos.ConsultaTopProductos(consultasEntidad);
         }
     }
 }
