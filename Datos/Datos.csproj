@@ -53,6 +53,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="RecepcionDatos.cs" />
+    <Compile Include="UsuarioDatos.cs" />
     <Compile Include="VentaDatos.cs" />
   </ItemGroup>
   <ItemGroup>

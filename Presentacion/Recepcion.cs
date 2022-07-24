@@ -30,6 +30,7 @@ namespace Presentacion
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             GuardarDatosProductor();
+
         }
         private void guna2GradientButton3_Click(object sender, EventArgs e)
         {
@@ -340,5 +341,6 @@ namespace Presentacion
         {
             Nuevo();
         }
+
     }
 }

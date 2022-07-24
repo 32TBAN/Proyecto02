@@ -177,7 +177,7 @@ namespace Datos
             }
             catch (Exception)
             {
-                throw;
+                return false;
             }
             finally
             {

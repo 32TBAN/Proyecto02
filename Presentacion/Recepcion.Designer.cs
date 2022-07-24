@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2TextBox_Email = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.guna2TextBox_TelefonoAdi = new Guna.UI2.WinForms.Guna2TextBox();
@@ -48,10 +48,11 @@
             this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.label_Ubicacion = new System.Windows.Forms.Label();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.iconButton_AgregarBodega = new FontAwesome.Sharp.IconButton();
+            this.iconButton_AgregarProducto = new FontAwesome.Sharp.IconButton();
             this.guna2TextBox_CedulaProductor = new Guna.UI2.WinForms.Guna2TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.guna2ComboBox_Bodega = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -65,7 +66,7 @@
             this.guna2ComboBox_Producto = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dataGridView_ProductosDetalle = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.label_Privilegios = new System.Windows.Forms.Label();
             this.guna2GroupBox1.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2NumericUpDown_Cantidad)).BeginInit();
@@ -371,11 +372,12 @@
             // guna2GroupBox2
             // 
             this.guna2GroupBox2.BorderRadius = 15;
+            this.guna2GroupBox2.Controls.Add(this.label_Privilegios);
             this.guna2GroupBox2.Controls.Add(this.guna2Button2);
             this.guna2GroupBox2.Controls.Add(this.guna2GradientButton4);
             this.guna2GroupBox2.Controls.Add(this.label_Ubicacion);
-            this.guna2GroupBox2.Controls.Add(this.iconButton2);
-            this.guna2GroupBox2.Controls.Add(this.iconButton1);
+            this.guna2GroupBox2.Controls.Add(this.iconButton_AgregarBodega);
+            this.guna2GroupBox2.Controls.Add(this.iconButton_AgregarProducto);
             this.guna2GroupBox2.Controls.Add(this.guna2TextBox_CedulaProductor);
             this.guna2GroupBox2.Controls.Add(this.label12);
             this.guna2GroupBox2.Controls.Add(this.guna2ComboBox_Bodega);
@@ -398,6 +400,24 @@
             this.guna2GroupBox2.Size = new System.Drawing.Size(592, 473);
             this.guna2GroupBox2.TabIndex = 3;
             this.guna2GroupBox2.Text = "Agregar Productos";
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.BorderRadius = 15;
+            this.guna2Button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(62)))), ((int)(((byte)(43)))));
+            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.Location = new System.Drawing.Point(486, 226);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Size = new System.Drawing.Size(93, 36);
+            this.guna2Button2.TabIndex = 41;
+            this.guna2Button2.Text = "Cancelar";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // guna2GradientButton4
             // 
@@ -429,37 +449,37 @@
             this.label_Ubicacion.TabIndex = 26;
             this.label_Ubicacion.Text = "label13";
             // 
-            // iconButton2
+            // iconButton_AgregarBodega
             // 
-            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.iconButton2.IconColor = System.Drawing.Color.White;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 20;
-            this.iconButton2.Location = new System.Drawing.Point(348, 83);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(27, 23);
-            this.iconButton2.TabIndex = 25;
-            this.iconButton2.UseVisualStyleBackColor = true;
-            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
+            this.iconButton_AgregarBodega.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton_AgregarBodega.FlatAppearance.BorderSize = 0;
+            this.iconButton_AgregarBodega.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton_AgregarBodega.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.iconButton_AgregarBodega.IconColor = System.Drawing.Color.White;
+            this.iconButton_AgregarBodega.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton_AgregarBodega.IconSize = 20;
+            this.iconButton_AgregarBodega.Location = new System.Drawing.Point(348, 83);
+            this.iconButton_AgregarBodega.Name = "iconButton_AgregarBodega";
+            this.iconButton_AgregarBodega.Size = new System.Drawing.Size(27, 23);
+            this.iconButton_AgregarBodega.TabIndex = 25;
+            this.iconButton_AgregarBodega.UseVisualStyleBackColor = true;
+            this.iconButton_AgregarBodega.Click += new System.EventHandler(this.iconButton2_Click);
             // 
-            // iconButton1
+            // iconButton_AgregarProducto
             // 
-            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.iconButton1.IconColor = System.Drawing.Color.White;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 20;
-            this.iconButton1.Location = new System.Drawing.Point(117, 82);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(27, 23);
-            this.iconButton1.TabIndex = 24;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            this.iconButton_AgregarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton_AgregarProducto.FlatAppearance.BorderSize = 0;
+            this.iconButton_AgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton_AgregarProducto.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.iconButton_AgregarProducto.IconColor = System.Drawing.Color.White;
+            this.iconButton_AgregarProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton_AgregarProducto.IconSize = 20;
+            this.iconButton_AgregarProducto.Location = new System.Drawing.Point(117, 82);
+            this.iconButton_AgregarProducto.Name = "iconButton_AgregarProducto";
+            this.iconButton_AgregarProducto.Size = new System.Drawing.Size(27, 23);
+            this.iconButton_AgregarProducto.TabIndex = 24;
+            this.iconButton_AgregarProducto.UseVisualStyleBackColor = true;
+            this.iconButton_AgregarProducto.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // guna2TextBox_CedulaProductor
             // 
@@ -637,14 +657,14 @@
             this.dataGridView_ProductosDetalle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView_ProductosDetalle.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridView_ProductosDetalle.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_ProductosDetalle.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_ProductosDetalle.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_ProductosDetalle.ColumnHeadersHeight = 30;
             this.dataGridView_ProductosDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView_ProductosDetalle.EnableHeadersVisualStyles = false;
@@ -652,20 +672,20 @@
             this.dataGridView_ProductosDetalle.Location = new System.Drawing.Point(6, 179);
             this.dataGridView_ProductosDetalle.Name = "dataGridView_ProductosDetalle";
             this.dataGridView_ProductosDetalle.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(197)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_ProductosDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(197)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView_ProductosDetalle.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(197)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_ProductosDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(92)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(197)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView_ProductosDetalle.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView_ProductosDetalle.Size = new System.Drawing.Size(474, 234);
             this.dataGridView_ProductosDetalle.TabIndex = 12;
             this.dataGridView_ProductosDetalle.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_ProductosDetalle_CellClick);
@@ -681,23 +701,15 @@
             this.label7.TabIndex = 11;
             this.label7.Text = "Elegir Producto";
             // 
-            // guna2Button2
+            // label_Privilegios
             // 
-            this.guna2Button2.BorderRadius = 15;
-            this.guna2Button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(62)))), ((int)(((byte)(43)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(486, 226);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(93, 36);
-            this.guna2Button2.TabIndex = 41;
-            this.guna2Button2.Text = "Cancelar";
-            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            this.label_Privilegios.AutoSize = true;
+            this.label_Privilegios.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Privilegios.ForeColor = System.Drawing.Color.White;
+            this.label_Privilegios.Location = new System.Drawing.Point(567, 42);
+            this.label_Privilegios.Name = "label_Privilegios";
+            this.label_Privilegios.Size = new System.Drawing.Size(0, 18);
+            this.label_Privilegios.TabIndex = 42;
             // 
             // Recepcion
             // 
@@ -752,10 +764,11 @@
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox_CedulaProductor;
         private System.Windows.Forms.Label label12;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton iconButton_AgregarBodega;
+        private FontAwesome.Sharp.IconButton iconButton_AgregarProducto;
         private System.Windows.Forms.Label label_Ubicacion;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton4;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        public System.Windows.Forms.Label label_Privilegios;
     }
 }

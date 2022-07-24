@@ -996,7 +996,6 @@
                           <FontStyle>Italic</FontStyle>
                           <FontFamily>Roboto</FontFamily>
                           <FontWeight>Medium</FontWeight>
-                          <Color>#bdc5f2</Color>
                         </Style>
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
@@ -1403,6 +1402,7 @@
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Area</Type>
+                  <Subtype>Smooth</Subtype>
                   <Style />
                   <ChartEmptyPoints>
                     <Style />

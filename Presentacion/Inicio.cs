@@ -11,25 +11,57 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Negocio;
 using Entidades;
+using System.IO;
+
 namespace Presentacion
 {
     public partial class Inicio : Form
     {
+        public UsuarioEntidad usuarioEntidad { get; set; }
+
+        public void CargarDatosUsuario()
+        {
+            guna2TextBox_Nombre.Text = usuarioEntidad.Nickname;
+            guna2TextBox_Email.Text = usuarioEntidad.Email;
+            guna2TextBox_Cedula.Text = usuarioEntidad.Cedula;
+            guna2TextBox_Privilegio.Text = usuarioEntidad.Tipo;
+            label_Lugar.Text += " "+usuarioEntidad.Nombre;
+
+            if (usuarioEntidad.Tipo == "A")
+            {
+                guna2GradientButton_Agregar.Visible = true;
+            }
+            if (usuarioEntidad.FotoPerfil != null)
+            {
+                guna2CirclePictureBox_FotoPerfil.Image = CargarImgen(usuarioEntidad.FotoPerfil);
+                pictureBox_Referencia.Image = guna2CirclePictureBox_FotoPerfil.Image;
+            }
+        }
+
+        private Image CargarImgen(byte[] fotoPerfil)
+        {
+            MemoryStream img = new MemoryStream(fotoPerfil);
+            return Image.FromStream(img);
+        }
+
         public Inicio()
         {
             InitializeComponent();
             IniciarComponentes();
+
         }
 
         private void IniciarComponentes()
         {
             Componetes();
+
         }
 
         private void Componetes()
         {
             CargarValorGrafica(10);
             iconButton_InfoPersonal.Visible = false;
+            guna2GradientButton_Agregar.Visible = false;
         }
 
         private void CargarValorGrafica(int valor)
@@ -132,7 +164,7 @@ namespace Presentacion
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            label_Lugar.Text = "Bienvenid@";
+            label_Lugar.Text = "Bienvenid@ "+usuarioEntidad.Nombre;
             CerrarFormularios<Recepcion>();
             CerrarFormularios<Venta>();
             CerrarFormularios<Almacen>();
@@ -220,5 +252,71 @@ namespace Presentacion
         }
         #endregion
 
+        private void guna2GradientButton1_Click(object sender, EventArgs e)
+        {
+            if (guna2TextBox_Nombre.Text != "" || guna2TextBox_Email.Text != "")
+            {
+                UsuarioEntidad usuarioEntidadActualizar = usuarioEntidad;
+                usuarioEntidadActualizar.Nickname = guna2TextBox_Nombre.Text;
+                usuarioEntidadActualizar.Email = guna2TextBox_Email.Text;
+                usuarioEntidadActualizar.FotoPerfil = CargarImagen();
+
+                usuarioEntidadActualizar = UsuarioNegocio.Guardar(usuarioEntidadActualizar);
+                if (usuarioEntidadActualizar != null)
+                {
+                    MessageBox.Show("Se ha guardado");
+                    usuarioEntidad = usuarioEntidadActualizar;
+                }
+                else
+                {
+                    MessageBox.Show("Error al guardar");
+                    UsuarioEntidad usuarioEntidadBuscado = UsuarioNegocio.BuscarUsuarioNickname(guna2TextBox_Nombre.Text);
+                    if (usuarioEntidadBuscado != null && usuarioEntidadBuscado.Nickname == guna2TextBox_Nombre.Text)
+                    {
+                        MessageBox.Show("Ese nickname ya existe");
+                        guna2TextBox_Nombre.Text = "";
+                    }
+                    usuarioEntidadActualizar = usuarioEntidad;
+                }
+            }
+        }
+        private byte[] CargarImagen()
+        {
+            string sTemp = Path.GetTempFileName();
+            FileStream fs = new FileStream(sTemp, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            guna2CirclePictureBox_FotoPerfil.Image.Save(fs, System.Drawing.Imaging.ImageFormat.Png);
+            fs.Position = 0;
+
+            int imgLength = Convert.ToInt32(fs.Length);
+            byte[] bytes = new byte[imgLength];
+            fs.Read(bytes, 0, imgLength);
+            fs.Close();
+            return bytes;
+        }
+        private void guna2GradientButton_Agregar_Click(object sender, EventArgs e)
+        {
+            AgregarUsuario agregarUsuario = new AgregarUsuario();
+            agregarUsuario.Show();
+        }
+
+        private void iconButton9_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog of = new OpenFileDialog();
+            DialogResult dr = of.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                guna2CirclePictureBox_FotoPerfil.Image = Image.FromFile(of.FileName);
+            }
+        }
+
+        private void iconButton7_Click(object sender, EventArgs e)
+        {
+            guna2TextBox_Cedula.Focus();
+        }
+
+        private void iconButton8_Click(object sender, EventArgs e)
+        {
+            guna2TextBox_Email.Focus();
+        }
     }
 }

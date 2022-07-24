@@ -9,12 +9,14 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidades;
+using Negocio;
 
 namespace Presentacion
 {
     public partial class Login : Form
     {
-
+        UsuarioEntidad usuarioEntidad = new UsuarioEntidad();
         #region Diseño
         private int bordesRadio = 30;
         private int bordeTamano = 2;
@@ -107,13 +109,41 @@ namespace Presentacion
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
-            //if (guna2TextBox_Usuario.Text != "Usuario" && guna2TextBox_Contrasenia.Text != "Contraseña")
-            //{
-            Inicio inicio = new Inicio();
-            inicio.Show();
-            inicio.FormClosed += CerrarSesion;
-            this.Hide();
-            //}
+            if (ControlAcceso())
+            {
+                Inicio inicio = new Inicio();
+                inicio.usuarioEntidad = usuarioEntidad;
+                inicio.CargarDatosUsuario();
+                inicio.Show();
+                inicio.FormClosed += CerrarSesion;
+                this.Hide();
+            }
+        }
+
+        private bool ControlAcceso()
+        {
+            usuarioEntidad = UsuarioNegocio.BuscarUsuarioNickname(guna2TextBox_Usuario.Text);
+            if (guna2TextBox_Usuario.Text == "Usuario" && guna2TextBox_Contrasenia.Text == "Contraseña")
+            {
+                MessageBox.Show("Error en su contraseña o usuario");
+                return false;
+            }
+            else if (usuarioEntidad == null)
+            {
+                MessageBox.Show("El usuario no existe");
+                return false;
+            }
+            else if (usuarioEntidad.Nickname != guna2TextBox_Usuario.Text)
+            {
+                MessageBox.Show("Nombre de usuario incorrecta");
+                return false;
+            }
+            else if (usuarioEntidad.Cedula != guna2TextBox_Contrasenia.Text)
+            {
+                MessageBox.Show("Contraseña incorrecta");
+                return false;
+            }
+            return true;
         }
 
         private void guna2TextBox_Usuario_Enter(object sender, EventArgs e)

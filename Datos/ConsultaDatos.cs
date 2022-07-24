@@ -38,7 +38,8 @@ namespace Datos
                         cmd.CommandText = @"SELECT FEC_VENTA, SUM(TOTAL) MONTO
                                             FROM VENTAS
                                             WHERE FEC_VENTA BETWEEN @fechaInicio AND @fechaFin
-                                            GROUP BY FEC_VENTA;";
+                                            GROUP BY FEC_VENTA
+                                            ORDER BY FEC_VENTA;";
                         cmd.Parameters.AddWithValue("@fechaInicio", consultaDatos.FechaInicio);
                         cmd.Parameters.AddWithValue("@fechaFin", consultaDatos.FechaFin);
 
@@ -52,8 +53,7 @@ namespace Datos
                                         Convert.ToDateTime(dr[0]),Convert.ToSingle(dr[1])));
                                 }
                             }
-                        }
-
+                        } //dias
                       if (consultaDatos.NumDias <= 30)
                         {
                             listaConsultaR = (from orderList in listaConsulta
@@ -73,7 +73,7 @@ namespace Datos
                                                into order
                                                 select new ListaConsulta1
                                                 {
-                                                    Fecha = "Week " + order.Key.ToString(),
+                                                    Fecha = "Semana " + order.Key.ToString(),
                                                     Monto = order.Sum(amount => amount.Value)
                                                 }).ToList();
                         }
