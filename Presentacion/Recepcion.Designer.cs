@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Recepcion));
             this.guna2TextBox_Email = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.guna2TextBox_TelefonoAdi = new Guna.UI2.WinForms.Guna2TextBox();
@@ -48,6 +49,7 @@
             this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.label_Privilegios = new System.Windows.Forms.Label();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.label_Ubicacion = new System.Windows.Forms.Label();
@@ -66,7 +68,6 @@
             this.guna2ComboBox_Producto = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dataGridView_ProductosDetalle = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
-            this.label_Privilegios = new System.Windows.Forms.Label();
             this.guna2GroupBox1.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2NumericUpDown_Cantidad)).BeginInit();
@@ -401,6 +402,16 @@
             this.guna2GroupBox2.TabIndex = 3;
             this.guna2GroupBox2.Text = "Agregar Productos";
             // 
+            // label_Privilegios
+            // 
+            this.label_Privilegios.AutoSize = true;
+            this.label_Privilegios.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Privilegios.ForeColor = System.Drawing.Color.White;
+            this.label_Privilegios.Location = new System.Drawing.Point(567, 42);
+            this.label_Privilegios.Name = "label_Privilegios";
+            this.label_Privilegios.Size = new System.Drawing.Size(0, 18);
+            this.label_Privilegios.TabIndex = 42;
+            // 
             // guna2Button2
             // 
             this.guna2Button2.BorderRadius = 15;
@@ -701,16 +712,6 @@
             this.label7.TabIndex = 11;
             this.label7.Text = "Elegir Producto";
             // 
-            // label_Privilegios
-            // 
-            this.label_Privilegios.AutoSize = true;
-            this.label_Privilegios.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Privilegios.ForeColor = System.Drawing.Color.White;
-            this.label_Privilegios.Location = new System.Drawing.Point(567, 42);
-            this.label_Privilegios.Name = "label_Privilegios";
-            this.label_Privilegios.Size = new System.Drawing.Size(0, 18);
-            this.label_Privilegios.TabIndex = 42;
-            // 
             // Recepcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -720,6 +721,7 @@
             this.Controls.Add(this.guna2GroupBox2);
             this.Controls.Add(this.guna2GroupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Recepcion";
             this.Text = "Productos";
             this.Load += new System.EventHandler(this.Productos_Load);

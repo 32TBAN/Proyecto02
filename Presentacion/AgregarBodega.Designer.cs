@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarBodega));
             this.label1 = new System.Windows.Forms.Label();
             this.guna2TextBox_Bodega = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -64,7 +65,7 @@
             this.guna2TextBox_Bodega.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox_Bodega.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.guna2TextBox_Bodega.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox_Bodega.Location = new System.Drawing.Point(12, 25);
+            this.guna2TextBox_Bodega.Location = new System.Drawing.Point(12, 30);
             this.guna2TextBox_Bodega.MaxLength = 10;
             this.guna2TextBox_Bodega.Name = "guna2TextBox_Bodega";
             this.guna2TextBox_Bodega.PasswordChar = '\0';
@@ -139,8 +140,9 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(179)))), ((int)(((byte)(217)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(265, 9);
+            this.dataGridView1.Location = new System.Drawing.Point(263, 9);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(344, 186);
             this.dataGridView1.TabIndex = 8;
@@ -168,7 +170,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(69)))), ((int)(((byte)(242)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(179)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(613, 204);
             this.Controls.Add(this.guna2Button_Elimianr);
             this.Controls.Add(this.dataGridView1);
@@ -179,6 +181,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.guna2TextBox_Bodega);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AgregarBodega";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AgregarBodega";

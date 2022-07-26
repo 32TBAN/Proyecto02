@@ -155,6 +155,7 @@
             this.linkLabel2.TabIndex = 13;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Recuperar";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // guna2Separator1
             // 
@@ -319,6 +320,7 @@
             this.ClientSize = new System.Drawing.Size(328, 487);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.Opacity = 0.87D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarProducto));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -41,6 +42,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(179)))), ((int)(((byte)(217)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(261, 12);
             this.dataGridView1.Name = "dataGridView1";
@@ -141,7 +143,7 @@
             this.guna2TextBox_NombreProducto.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox_NombreProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.guna2TextBox_NombreProducto.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox_NombreProducto.Location = new System.Drawing.Point(12, 28);
+            this.guna2TextBox_NombreProducto.Location = new System.Drawing.Point(10, 33);
             this.guna2TextBox_NombreProducto.MaxLength = 10;
             this.guna2TextBox_NombreProducto.Name = "guna2TextBox_NombreProducto";
             this.guna2TextBox_NombreProducto.PasswordChar = '\0';
@@ -155,7 +157,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(69)))), ((int)(((byte)(242)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(179)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(620, 211);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.guna2Button2);
@@ -166,6 +168,7 @@
             this.Controls.Add(this.guna2TextBox_NombreProducto);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AgregarProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AgregarProducto";

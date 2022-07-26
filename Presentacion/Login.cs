@@ -182,5 +182,11 @@ namespace Presentacion
             }
 
         }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Recuperar recuperar = new Recuperar();
+            recuperar.Show();
+        }
     }
 }

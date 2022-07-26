@@ -32,6 +32,11 @@ namespace Negocio
             }
         }
 
+        public static string RecuperarContraseña(string text)
+        {
+            return UsuarioDatos.RecuperarContraseña(text);
+        }
+
         public static UsuarioEntidad BuscarUsuarioNickname(string text)
         {
             return UsuarioDatos.BuscarUsuarioNickname(text);

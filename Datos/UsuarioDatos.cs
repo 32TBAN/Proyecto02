@@ -62,6 +62,36 @@ namespace Datos
             }
         }
 
+        public static string RecuperarContraseña(string text)
+        {
+            try
+            {
+                UsuarioEntidad usuarioEntidad = BuscarUsuarioNickname(text);
+  
+                    if (usuarioEntidad == null)
+                    {
+                        return "No existe el nombre de usuario: " + text +
+                            " Verifique e intente de nuevo";
+                    }
+                    string nombre = usuarioEntidad.Nombre;
+                    string mail = usuarioEntidad.Email;
+                    string contraseña = usuarioEntidad.Cedula;
+
+                    var servicioMail = new MensajesEmail.SoporteEmail();
+                    servicioMail.sendMail(
+                        sujeto: "SYSTEM: Recuperacion de contraseña",
+                        boby: "Hola " + nombre +
+                        "\nTe recordamos que tu contraseña es:" + contraseña,
+                        recipienteMail: new List<string> { mail });
+
+                    return "Se ha enviado un mensaje a su correo";
+            }
+            catch (Exception)
+            {
+                return "Error no se ha encontrado su correo";
+            }
+        }
+
         public static bool EliminarUsuario(int idUsuario)
         {
             SqlConnection connection = new SqlConnection();
