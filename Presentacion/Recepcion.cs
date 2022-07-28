@@ -17,9 +17,16 @@ namespace Presentacion
         RecepcionEntidad recepcionEntidad = new RecepcionEntidad();
         List<DetalleRecepcionEntidad> listaRecepcion = new List<DetalleRecepcionEntidad>();
         DetalleRecepcionEntidad detalleRecepcion = new DetalleRecepcionEntidad();
-        public Recepcion()
+        public UsuarioEntidad usuarioEntidad { get; set; }
+        public Recepcion(UsuarioEntidad usuarioEntidad)
         {
             InitializeComponent();
+            this.usuarioEntidad = usuarioEntidad;
+            if (this.usuarioEntidad.Tipo != "A")
+            {
+                iconButton_AgregarBodega.Visible = false;
+                iconButton_AgregarProducto.Visible = false;
+            }
         }
         private void Productos_Load(object sender, EventArgs e)
         {
@@ -67,7 +74,7 @@ namespace Presentacion
             if (productoresEntidad != null)
             {
                 recepcionEntidad = new RecepcionEntidad();
-                recepcionEntidad.IdUsuario = 1;
+                recepcionEntidad.IdUsuario = usuarioEntidad.IdUsuario;
                 recepcionEntidad.IdProductor = productoresEntidad.Id;
                 recepcionEntidad.FechaRecepcion = DateTime.UtcNow;
                 recepcionEntidad.Total = Convert.ToSingle(guna2TextBox_Total.Text);

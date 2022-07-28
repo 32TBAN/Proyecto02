@@ -17,9 +17,11 @@ namespace Presentacion
         VentaEntidad ventaEntidad = new VentaEntidad();
         DetalleVentaEntidad detalleVentaEntidad = new DetalleVentaEntidad();
         List<DetalleVentaEntidad> listaDetalleVentas = new List<DetalleVentaEntidad>();
-        public Venta()
+        public UsuarioEntidad usuarioEntidad { get; set; }
+        public Venta(UsuarioEntidad usuarioEntidad)
         {
             InitializeComponent();
+            this.usuarioEntidad = usuarioEntidad;
         }
         private void Venta_Load(object sender, EventArgs e)
         {
@@ -100,7 +102,7 @@ namespace Presentacion
         {
             if (ventaEntidad.Estado)
             {
-                ventaEntidad.IdUsuario = 1;
+                ventaEntidad.IdUsuario = usuarioEntidad.IdUsuario;
                 ventaEntidad.IdCliente = clienteEntidad.Id;
                 ventaEntidad.Total = Convert.ToSingle(label_Total.Text);
                 ventaEntidad.Fecha = DateTime.UtcNow;
@@ -110,7 +112,7 @@ namespace Presentacion
             {
                 ventaEntidad = new VentaEntidad();
                 ventaEntidad.Estado = true;
-                ventaEntidad.IdUsuario = 1;
+                ventaEntidad.IdUsuario = usuarioEntidad.IdUsuario;
                 ventaEntidad.IdCliente = clienteEntidad.Id;
                 ventaEntidad.Total = Convert.ToSingle(label_Total.Text);
                 ventaEntidad.Fecha = DateTime.UtcNow;

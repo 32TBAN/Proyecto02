@@ -18,7 +18,7 @@ namespace Presentacion
     public partial class Inicio : Form
     {
         public UsuarioEntidad usuarioEntidad { get; set; }
-
+        public Form formAbierto = null;
         public void CargarDatosUsuario()
         {
             guna2TextBox_Nombre.Text = usuarioEntidad.Nickname;
@@ -88,26 +88,20 @@ namespace Presentacion
             guna2CustomGradientPanel_InfoPersonal.Visible = false;
         }
 
-        public void AbrirFormularios<MiForm>() where MiForm : Form, new()
+        public void AbrirFormularios(Form form)
         {
-            Form formulario;
-            formulario = panel_Contenedor.Controls.OfType<MiForm>().FirstOrDefault();
-
-            if (formulario == null)
+            if (formAbierto != null)
             {
-                formulario = new MiForm();
-                formulario.TopLevel = false;
-                formulario.Dock = DockStyle.Fill;
-                panel_Contenedor.Controls.Add(formulario);
-                panel_Contenedor.Tag = formulario;
-                formulario.Show();
+                formAbierto.Close();
             }
-            else
-            {
-                formulario.BringToFront();
-            }
-            guna2CustomGradientPanel_InfoPersonal.Visible = false;
-            iconButton_InfoPersonal.Visible = true;
+            formAbierto = form;
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            panel_Contenedor.Controls.Add(form);
+            panel_Contenedor.Tag = form;
+            form.BringToFront();
+            form.Show();
         }
 
         private void iconButton4_Click(object sender, EventArgs e)
@@ -133,14 +127,16 @@ namespace Presentacion
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            AbrirFormularios<Recepcion>();
+            Recepcion recepcion = new Recepcion(usuarioEntidad);
+            AbrirFormularios(recepcion);
             label_Lugar.Text = "Ingreso de Productos";
             pictureBox_Referencia.Image = pictureBox_Producto.Image;
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-            AbrirFormularios<Almacen>();
+            Almacen almacen = new Almacen(usuarioEntidad);
+            AbrirFormularios(almacen);
             label_Lugar.Text = "Bodegas";
             pictureBox_Referencia.Image = pictureBox_Bodegas.Image;
 
@@ -148,7 +144,8 @@ namespace Presentacion
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
-            AbrirFormularios<Venta>();
+            Venta venta = new Venta(usuarioEntidad);
+            AbrirFormularios(venta);
             label_Lugar.Text = "Venta";
             pictureBox_Referencia.Image = pictureBox_Ventas.Image;
 
@@ -156,7 +153,8 @@ namespace Presentacion
 
         private void iconButton6_Click(object sender, EventArgs e)
         {
-            AbrirFormularios<Reporte>();
+            Reporte reporte = new Reporte();
+            AbrirFormularios(reporte);
             label_Lugar.Text = "Reportes";
             pictureBox_Referencia.Image = pictureBox_Reporte.Image;
 
@@ -165,28 +163,23 @@ namespace Presentacion
         private void pictureBox5_Click(object sender, EventArgs e)
         {
             label_Lugar.Text = "Bienvenid@ "+usuarioEntidad.Nombre;
-            CerrarFormularios<Recepcion>();
-            CerrarFormularios<Venta>();
-            CerrarFormularios<Almacen>();
-            CerrarFormularios<Reporte>();
-            pictureBox_Referencia.Image = null;
+            CerrarFormularios();
+            pictureBox_Referencia.Image = CargarImgen(usuarioEntidad.FotoPerfil);
             CargarValorGrafica(10);
         }
 
-        public void CerrarFormularios<MiForm>() where MiForm : Form, new()
+        public void CerrarFormularios()
         {
-            Form formulario;
-            formulario = panel_Contenedor.Controls.OfType<MiForm>().FirstOrDefault();
-
-            if (formulario != null)
+            if (formAbierto != null)
             {
-                formulario.Close();
+                formAbierto.Close();
             }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            AbrirFormularios<Recepcion>();
+            Recepcion recepcion = new Recepcion(usuarioEntidad);
+            AbrirFormularios(recepcion);
             label_Lugar.Text = "Ingreso de Productos";
             pictureBox_Referencia.Image = pictureBox_Producto.Image;
 
@@ -194,7 +187,8 @@ namespace Presentacion
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            AbrirFormularios<Almacen>();
+            Almacen almacen = new Almacen(usuarioEntidad);
+            AbrirFormularios(almacen);
             label_Lugar.Text = "Bodegas";
             pictureBox_Referencia.Image = pictureBox_Bodegas.Image;
 
@@ -202,7 +196,8 @@ namespace Presentacion
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            AbrirFormularios<Venta>();
+            Venta venta = new Venta(usuarioEntidad);
+            AbrirFormularios(venta);
             label_Lugar.Text = "Venta";
             pictureBox_Referencia.Image = pictureBox_Ventas.Image;
 
@@ -210,7 +205,8 @@ namespace Presentacion
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            AbrirFormularios<Reporte>();
+            Reporte reporte = new Reporte();
+            AbrirFormularios(reporte);
             label_Lugar.Text = "Reportes";
             pictureBox_Referencia.Image = pictureBox_Reporte.Image;
 

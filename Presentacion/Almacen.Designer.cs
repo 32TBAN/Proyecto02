@@ -36,7 +36,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Almacen));
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button_Actualizar = new Guna.UI2.WinForms.Guna2Button();
             this.dataGridView_Bodegas = new System.Windows.Forms.DataGridView();
             this.dataGridView_Contenido = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,21 +55,21 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Bodegas";
             // 
-            // guna2Button1
+            // guna2Button_Actualizar
             // 
-            this.guna2Button1.BorderRadius = 15;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(362, 32);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button1.TabIndex = 3;
-            this.guna2Button1.Text = "Actualizar O Agregar";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.guna2Button_Actualizar.BorderRadius = 15;
+            this.guna2Button_Actualizar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button_Actualizar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button_Actualizar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button_Actualizar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button_Actualizar.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button_Actualizar.ForeColor = System.Drawing.Color.White;
+            this.guna2Button_Actualizar.Location = new System.Drawing.Point(362, 96);
+            this.guna2Button_Actualizar.Name = "guna2Button_Actualizar";
+            this.guna2Button_Actualizar.Size = new System.Drawing.Size(180, 45);
+            this.guna2Button_Actualizar.TabIndex = 3;
+            this.guna2Button_Actualizar.Text = "Actualizar O Agregar";
+            this.guna2Button_Actualizar.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // dataGridView_Bodegas
             // 
@@ -172,7 +172,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView_Contenido);
             this.Controls.Add(this.dataGridView_Bodegas);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.guna2Button_Actualizar);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -188,7 +188,7 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button_Actualizar;
         private System.Windows.Forms.DataGridView dataGridView_Bodegas;
         private System.Windows.Forms.DataGridView dataGridView_Contenido;
         private System.Windows.Forms.Label label2;

@@ -13,14 +13,26 @@ namespace Presentacion
 {
     public partial class Almacen : Form
     {
+        public UsuarioEntidad usuarioEntidad { get; set; }
         public Almacen()
         {
             InitializeComponent();
         }
 
+        public Almacen(UsuarioEntidad usuarioEntidad)
+        {
+            InitializeComponent();
+            this.usuarioEntidad = usuarioEntidad;
+            if (usuarioEntidad.Tipo != "A")
+            {
+                guna2Button_Actualizar.Visible = false;
+            }
+        }
+
         private void Almacen_Load(object sender, EventArgs e)
         {
             CargarComponentes();
+            
         }
 
         private void CargarComponentes()
@@ -60,5 +72,6 @@ namespace Presentacion
             dataGridView_Contenido.Columns["Subtotal"].Visible = false;
             dataGridView_Contenido.Columns["NumBodega"].Visible = false;
         }
+
     }
 }

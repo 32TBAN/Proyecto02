@@ -94,19 +94,7 @@ namespace Presentacion
 
 
         #endregion
-
-        private void CerrarSesion(object sender, FormClosedEventArgs e)
-        {
-            guna2TextBox_Contrasenia.Text = "Contraseña";
-            this.Show();
-            guna2TextBox_Usuario.Focus();
-        }
-
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
+        #region Ingreso
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             if (ControlAcceso())
@@ -144,6 +132,18 @@ namespace Presentacion
                 return false;
             }
             return true;
+        }
+        private void CerrarSesion(object sender, FormClosedEventArgs e)
+        {
+            guna2TextBox_Contrasenia.Text = "Contraseña";
+            this.Show();
+            guna2TextBox_Usuario.Focus();
+        }
+        #endregion
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private void guna2TextBox_Usuario_Enter(object sender, EventArgs e)
